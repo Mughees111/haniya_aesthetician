@@ -1,0 +1,324 @@
+import {
+  Sparkles,
+  Zap,
+  Syringe,
+  Droplets,
+  Wind,
+  Scissors,
+  Activity,
+  RefreshCw,
+  Heart,
+  Sun,
+  Shield,
+  Shapes
+} from 'lucide-react';
+
+export interface Service {
+  id: string;
+  title: string;
+  slug: string;
+  shortDescription: string;
+  fullDescription: string;
+  benefits: string[];
+  icon: any;
+  seo: {
+    title: string;
+    description: string;
+    keywords: string;
+  };
+}
+
+export const services: Service[] = [
+  {
+    id: '1',
+    title: 'Botox Treatment',
+    slug: 'botox',
+    shortDescription: 'Non-surgical treatment for wrinkles and fine lines, delivering natural-looking results.',
+    fullDescription: `Botox is a non-surgical aesthetic treatment used to reduce the appearance of fine lines and wrinkles by relaxing targeted facial muscles. I perform Botox procedures with precise facial mapping to ensure natural expressions, symmetry, and long-lasting results.
+
+Each treatment begins with a detailed consultation to assess muscle movement, skin condition, and desired outcomes. Only high-quality products and sterile techniques are used to maintain maximum safety and effectiveness.
+
+Botox can be performed in clinical settings and selected cases as an on-call service, following professional standards.`,
+    benefits: [
+      'Reduces wrinkles & fine lines',
+      'Non-surgical & quick procedure',
+      'Natural-looking results',
+      'Minimal downtime',
+      'Long-lasting effects'
+    ],
+    icon: Sparkles,
+    seo: {
+      title: 'Botox Treatment',
+      description: 'Expert Botox treatments for wrinkles, fine lines, and facial rejuvenation performed by a certified aesthetician with 4+ years experience.',
+      keywords: 'botox, wrinkle treatment, anti-aging, facial rejuvenation, aesthetic treatment'
+    }
+  },
+  {
+    id: '2',
+    title: 'Dermal Fillers',
+    slug: 'dermal-fillers',
+    shortDescription: 'Restore volume, enhance contours, and achieve natural facial harmony.',
+    fullDescription: `Dermal fillers are injectable treatments designed to restore lost volume, smooth wrinkles, and enhance facial contours. I specialize in creating natural, balanced results that complement your unique facial structure.
+
+Using premium hyaluronic acid-based fillers, I carefully assess facial anatomy to achieve symmetry and harmony. Common treatment areas include cheeks, lips, nasolabial folds, and under-eye hollows.
+
+Every procedure is performed with precision, prioritizing client safety, comfort, and satisfaction. Results are immediate and can last from 6 to 18 months depending on the product and treatment area.`,
+    benefits: [
+      'Restores facial volume',
+      'Enhances natural features',
+      'Immediate visible results',
+      'Non-surgical procedure',
+      'Customized to facial structure'
+    ],
+    icon: Droplets,
+    seo: {
+      title: 'Dermal Fillers',
+      description: 'Professional dermal filler treatments to restore volume and enhance facial contours with natural-looking results.',
+      keywords: 'dermal fillers, facial fillers, lip fillers, cheek augmentation, aesthetic injections'
+    }
+  },
+  {
+    id: '3',
+    title: 'Liquid Rhinoplasty',
+    slug: 'liquid-rhinoplasty',
+    shortDescription: 'Non-surgical nose reshaping for improved symmetry and balance.',
+    fullDescription: `Liquid rhinoplasty is a non-surgical nose reshaping procedure using dermal fillers to correct imperfections, improve symmetry, and enhance nasal contours without surgery.
+
+This advanced technique allows for precise adjustments to the nose bridge, tip, and profile. The procedure is ideal for clients seeking subtle improvements without the downtime and risks associated with surgical rhinoplasty.
+
+I perform comprehensive facial analysis before treatment to ensure the results complement overall facial harmony. The procedure takes approximately 30 minutes with immediate results that can last 12-18 months.`,
+    benefits: [
+      'Non-surgical nose reshaping',
+      'No downtime required',
+      'Immediate results',
+      'Reversible procedure',
+      'Enhances facial symmetry'
+    ],
+    icon: Wind,
+    seo: {
+      title: 'Liquid Rhinoplasty',
+      description: 'Non-surgical nose reshaping with dermal fillers for improved facial symmetry and balance.',
+      keywords: 'liquid rhinoplasty, non-surgical nose job, nose fillers, nose reshaping, aesthetic nose treatment'
+    }
+  },
+  {
+    id: '4',
+    title: 'Laser Treatments',
+    slug: 'laser-treatments',
+    shortDescription: 'Advanced laser technology for skin rejuvenation, hair removal, and pigmentation.',
+    fullDescription: `I offer a comprehensive range of laser treatments designed to address various skin concerns including hair removal, pigmentation, acne scars, skin rejuvenation, and vascular lesions.
+
+Using state-of-the-art laser technology, each treatment is customized based on skin type, concern, and desired outcome. Laser treatments are safe, effective, and provide long-lasting results with minimal downtime.
+
+All procedures follow strict safety protocols with proper skin assessment and post-treatment care guidance. Multiple sessions may be required for optimal results depending on the treatment type.`,
+    benefits: [
+      'Treats multiple skin concerns',
+      'Safe for various skin types',
+      'Long-lasting results',
+      'Minimal downtime',
+      'Advanced technology'
+    ],
+    icon: Zap,
+    seo: {
+      title: 'Laser Treatments',
+      description: 'Professional laser treatments for hair removal, skin rejuvenation, and pigmentation correction.',
+      keywords: 'laser treatment, laser hair removal, skin rejuvenation, pigmentation treatment, laser therapy'
+    }
+  },
+  {
+    id: '5',
+    title: 'PRP Therapy',
+    slug: 'prp-therapy',
+    shortDescription: 'Natural regenerative treatment for hair restoration and facial rejuvenation.',
+    fullDescription: `Platelet-Rich Plasma (PRP) therapy is a natural regenerative treatment that uses your own blood to stimulate collagen production, improve skin texture, and promote hair growth.
+
+For facial rejuvenation, PRP improves skin tone, reduces fine lines, and enhances overall skin quality. For hair restoration, it strengthens hair follicles and promotes new growth in areas of thinning.
+
+The procedure involves drawing a small amount of blood, processing it to concentrate the platelets, and injecting it into targeted areas. Results develop gradually over several weeks with optimal outcomes after a series of treatments.`,
+    benefits: [
+      'Natural regenerative therapy',
+      'Stimulates collagen production',
+      'Promotes hair growth',
+      'Improves skin texture',
+      'Minimal side effects'
+    ],
+    icon: Activity,
+    seo: {
+      title: 'PRP Therapy (Hair & Face)',
+      description: 'Natural PRP therapy for hair restoration and facial rejuvenation using your body\'s own healing properties.',
+      keywords: 'PRP therapy, platelet rich plasma, hair restoration, facial rejuvenation, natural treatment'
+    }
+  },
+  {
+    id: '6',
+    title: 'Fat Dissolver Injections',
+    slug: 'fat-dissolver',
+    shortDescription: 'Non-surgical fat reduction for targeted areas like double chin and jowls.',
+    fullDescription: `Fat dissolver injections are non-surgical treatments designed to reduce stubborn fat deposits in targeted areas such as the double chin, jowls, and other small pockets of fat.
+
+The treatment uses a synthetic form of deoxycholic acid, which breaks down fat cells naturally processed and eliminated by the body. This results in a more contoured and defined appearance.
+
+Treatment sessions typically last 15-20 minutes with minimal discomfort. Multiple sessions may be required depending on the treatment area and desired results. Results are gradual and long-lasting when combined with a healthy lifestyle.`,
+    benefits: [
+      'Non-surgical fat reduction',
+      'Targets stubborn areas',
+      'Permanent fat cell removal',
+      'Natural-looking contours',
+      'Minimal downtime'
+    ],
+    icon: Scissors,
+    seo: {
+      title: 'Fat Dissolver Injections',
+      description: 'Non-surgical fat reduction treatments to eliminate stubborn fat and enhance facial contours.',
+      keywords: 'fat dissolver, double chin treatment, fat reduction, non-surgical liposuction, contouring'
+    }
+  },
+  {
+    id: '7',
+    title: 'Skin Tightening',
+    slug: 'skin-tightening',
+    shortDescription: 'Advanced treatments to firm and lift sagging skin for a youthful appearance.',
+    fullDescription: `Skin tightening treatments use advanced technology to stimulate collagen and elastin production, resulting in firmer, tighter, and more youthful-looking skin.
+
+These non-invasive procedures are ideal for addressing mild to moderate skin laxity on the face, neck, and body. The treatments work by heating deeper layers of skin, triggering the body's natural healing response and collagen remodeling.
+
+Results develop gradually over several months as new collagen forms. Multiple sessions are typically recommended for optimal results. The procedures are comfortable with no downtime, making them perfect for busy lifestyles.`,
+    benefits: [
+      'Non-surgical skin firming',
+      'Stimulates collagen production',
+      'No downtime required',
+      'Natural-looking results',
+      'Long-lasting effects'
+    ],
+    icon: RefreshCw,
+    seo: {
+      title: 'Skin Tightening',
+      description: 'Advanced non-surgical skin tightening treatments to firm and lift sagging skin naturally.',
+      keywords: 'skin tightening, skin firming, non-surgical facelift, collagen stimulation, anti-aging'
+    }
+  },
+  {
+    id: '8',
+    title: 'Fibroplasty',
+    slug: 'fibroplasty',
+    shortDescription: 'Non-surgical procedure to tighten and lift skin using plasma technology.',
+    fullDescription: `Fibroplasty, also known as plasma pen treatment, is a revolutionary non-surgical procedure that uses plasma energy to tighten, lift, and rejuvenate the skin.
+
+This treatment is particularly effective for eyelid lifting, wrinkle reduction, and skin tightening around delicate areas. The plasma pen creates tiny controlled injuries that stimulate natural healing and collagen production.
+
+The procedure is precise and targeted, making it ideal for areas where surgical intervention would be complex. Results are long-lasting with proper aftercare. Some initial downtime is expected as the skin heals and regenerates.`,
+    benefits: [
+      'Non-surgical skin tightening',
+      'Effective for delicate areas',
+      'Long-lasting results',
+      'Stimulates collagen',
+      'Precise treatment'
+    ],
+    icon: Zap,
+    seo: {
+      title: 'Fibroplasty',
+      description: 'Non-surgical fibroplasty treatment using plasma technology for skin tightening and lifting.',
+      keywords: 'fibroplasty, plasma pen, skin tightening, eyelid lift, non-surgical lift'
+    }
+  },
+  {
+    id: '9',
+    title: 'Whitening Injections',
+    slug: 'whitening-injections',
+    shortDescription: 'Safe skin brightening treatments for even skin tone and radiant complexion.',
+    fullDescription: `Whitening injections are advanced treatments designed to brighten skin tone, reduce pigmentation, and achieve a more radiant and even complexion.
+
+These treatments use powerful antioxidants, primarily glutathione, which work at the cellular level to reduce melanin production and promote overall skin health. The treatment is administered through a series of IV or intramuscular injections.
+
+Results develop gradually over several weeks with optimal outcomes achieved through a complete treatment course. Regular maintenance sessions help sustain the brightening effects. All treatments are performed following strict medical protocols for safety.`,
+    benefits: [
+      'Brightens overall skin tone',
+      'Reduces pigmentation',
+      'Powerful antioxidant effects',
+      'Promotes skin health',
+      'Gradual natural results'
+    ],
+    icon: Sun,
+    seo: {
+      title: 'Whitening Injections',
+      description: 'Professional skin whitening injections for brighter, more even skin tone and radiant complexion.',
+      keywords: 'whitening injections, glutathione, skin brightening, pigmentation treatment, skin whitening'
+    }
+  },
+  {
+    id: '10',
+    title: 'Hydia Facial',
+    slug: 'hydia-facial',
+    shortDescription: 'Deep hydration facial treatment for glowing, refreshed skin.',
+    fullDescription: `The Hydia Facial is a premium hydration treatment that combines deep cleansing, exfoliation, extraction, and intense hydration to reveal glowing, healthy skin.
+
+This multi-step treatment uses advanced technology and medical-grade serums to address various skin concerns including dehydration, dullness, fine lines, and uneven texture. The treatment is customized based on individual skin needs and concerns.
+
+Results are immediate with plumper, more radiant skin after just one session. Regular treatments help maintain optimal skin health and address aging concerns. The procedure is gentle, relaxing, and suitable for all skin types with no downtime.`,
+    benefits: [
+      'Deep skin hydration',
+      'Immediate glowing results',
+      'Suitable for all skin types',
+      'No downtime required',
+      'Addresses multiple concerns'
+    ],
+    icon: Droplets,
+    seo: {
+      title: 'Hydia Facial',
+      description: 'Luxury hydration facial treatment for deep cleansing and glowing, refreshed skin.',
+      keywords: 'hydia facial, hydrafacial, hydration treatment, facial treatment, skin rejuvenation'
+    }
+  },
+  {
+    id: '11',
+    title: 'Skin Tag & Mole Removal',
+    slug: 'skin-tag-mole-removal',
+    shortDescription: 'Safe removal of skin tags and moles for smooth, clear skin.',
+    fullDescription: `Professional skin tag and mole removal services using safe, effective techniques for clear, smooth skin. Each removal is performed with precision and care to minimize scarring.
+
+Before any removal, a thorough assessment is conducted to determine the appropriate removal method. Common techniques include electrocautery, cryotherapy, or surgical excision depending on the size and location.
+
+All procedures follow strict hygiene and safety protocols. Post-treatment care instructions are provided to ensure optimal healing. Most removals are quick with minimal discomfort and fast recovery.`,
+    benefits: [
+      'Safe professional removal',
+      'Minimal scarring',
+      'Quick procedure',
+      'Fast recovery',
+      'Clear smooth skin'
+    ],
+    icon: Shield,
+    seo: {
+      title: 'Skin Tag & Mole Removal',
+      description: 'Professional and safe removal of skin tags and moles with minimal scarring.',
+      keywords: 'skin tag removal, mole removal, skin lesion removal, aesthetic dermatology'
+    }
+  },
+  {
+    id: '12',
+    title: 'Face Reshaping',
+    slug: 'face-reshaping',
+    shortDescription: 'Non-surgical facial contouring for enhanced definition and symmetry.',
+    fullDescription: `Face reshaping is a comprehensive non-surgical approach to facial contouring that combines various aesthetic techniques to enhance facial definition, symmetry, and overall harmony.
+
+This treatment may include strategic use of dermal fillers, muscle relaxants, and other advanced techniques to sculpt the face, define the jawline, enhance cheekbones, and create balanced proportions.
+
+Each treatment plan is highly customized based on facial analysis, bone structure, and aesthetic goals. The approach is artistic and technical, ensuring results that look natural and complement your unique features. Results are immediate with continued improvement as treatments settle.`,
+    benefits: [
+      'Customized facial contouring',
+      'Enhanced facial symmetry',
+      'Non-surgical approach',
+      'Natural-looking results',
+      'Comprehensive treatment'
+    ],
+    icon: Shapes,
+    seo: {
+      title: 'Face Reshaping',
+      description: 'Non-surgical facial contouring and reshaping for enhanced definition, symmetry, and facial harmony.',
+      keywords: 'face reshaping, facial contouring, jawline definition, non-surgical facelift, facial sculpting'
+    }
+  }
+];
+
+export const getServiceBySlug = (slug: string): Service | undefined => {
+  return services.find(service => service.slug === slug);
+};
