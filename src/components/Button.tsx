@@ -21,7 +21,7 @@ export default function Button({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-full transition-all duration-300';
 
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-primary-500 to-rose-500 text-white hover:shadow-lg hover:shadow-primary-300/50 hover:scale-105',
+    primary: 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:shadow-lg hover:shadow-primary-300/50 hover:scale-105',
     secondary: 'bg-white text-primary-600 hover:bg-primary-50 border-2 border-primary-200',
     outline: 'bg-transparent text-primary-600 border-2 border-primary-500 hover:bg-primary-500 hover:text-white',
   };

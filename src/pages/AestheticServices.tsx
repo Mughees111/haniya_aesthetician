@@ -49,6 +49,7 @@ export default function AestheticServices() {
                   title={service.title}
                   description={service.shortDescription}
                   icon={service.icon}
+                  image={service.image}
                   link={`/services/${service.slug}`}
                 />
               </motion.div>

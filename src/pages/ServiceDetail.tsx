@@ -95,8 +95,13 @@ export default function ServiceDetail() {
               animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-3xl p-8 shadow-xl"
             >
-              <div className="aspect-video bg-gradient-to-br from-primary-100 to-rose-100 rounded-2xl mb-8 flex items-center justify-center">
-                <Icon className="w-24 h-24 text-primary-400" />
+              <div className="aspect-video rounded-2xl mb-8 overflow-hidden relative">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent"></div>
               </div>
 
               <h2 className="text-2xl font-bold mb-4 text-gray-900">About This Treatment</h2>
@@ -188,6 +193,7 @@ export default function ServiceDetail() {
                       title={relatedService.title}
                       description={relatedService.shortDescription}
                       icon={relatedService.icon}
+                      image={relatedService.image}
                       link={`/services/${relatedService.slug}`}
                     />
                   </motion.div>

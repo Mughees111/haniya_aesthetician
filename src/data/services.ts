@@ -21,6 +21,7 @@ export interface Service {
   fullDescription: string;
   benefits: string[];
   icon: any;
+  image: string;
   seo: {
     title: string;
     description: string;
@@ -47,6 +48,7 @@ Botox can be performed in clinical settings and selected cases as an on-call ser
       'Long-lasting effects'
     ],
     icon: Sparkles,
+    image: 'https://images.pexels.com/photos/3738381/pexels-photo-3738381.jpeg',
     seo: {
       title: 'Botox Treatment',
       description: 'Expert Botox treatments for wrinkles, fine lines, and facial rejuvenation performed by a certified aesthetician with 4+ years experience.',
@@ -71,6 +73,7 @@ Every procedure is performed with precision, prioritizing client safety, comfort
       'Customized to facial structure'
     ],
     icon: Droplets,
+    image: 'https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg',
     seo: {
       title: 'Dermal Fillers',
       description: 'Professional dermal filler treatments to restore volume and enhance facial contours with natural-looking results.',
@@ -95,6 +98,7 @@ I perform comprehensive facial analysis before treatment to ensure the results c
       'Enhances facial symmetry'
     ],
     icon: Wind,
+    image: 'https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg',
     seo: {
       title: 'Liquid Rhinoplasty',
       description: 'Non-surgical nose reshaping with dermal fillers for improved facial symmetry and balance.',
@@ -119,6 +123,7 @@ All procedures follow strict safety protocols with proper skin assessment and po
       'Advanced technology'
     ],
     icon: Zap,
+    image: 'https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg',
     seo: {
       title: 'Laser Treatments',
       description: 'Professional laser treatments for hair removal, skin rejuvenation, and pigmentation correction.',
@@ -143,6 +148,7 @@ The procedure involves drawing a small amount of blood, processing it to concent
       'Minimal side effects'
     ],
     icon: Activity,
+    image: 'https://images.pexels.com/photos/3845328/pexels-photo-3845328.jpeg',
     seo: {
       title: 'PRP Therapy (Hair & Face)',
       description: 'Natural PRP therapy for hair restoration and facial rejuvenation using your body\'s own healing properties.',
@@ -167,6 +173,7 @@ Treatment sessions typically last 15-20 minutes with minimal discomfort. Multipl
       'Minimal downtime'
     ],
     icon: Scissors,
+    image: 'https://images.pexels.com/photos/3985371/pexels-photo-3985371.jpeg',
     seo: {
       title: 'Fat Dissolver Injections',
       description: 'Non-surgical fat reduction treatments to eliminate stubborn fat and enhance facial contours.',
@@ -191,6 +198,7 @@ Results develop gradually over several months as new collagen forms. Multiple se
       'Long-lasting effects'
     ],
     icon: RefreshCw,
+    image: 'https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg',
     seo: {
       title: 'Skin Tightening',
       description: 'Advanced non-surgical skin tightening treatments to firm and lift sagging skin naturally.',
@@ -215,6 +223,7 @@ The procedure is precise and targeted, making it ideal for areas where surgical 
       'Precise treatment'
     ],
     icon: Zap,
+    image: 'https://images.pexels.com/photos/3845320/pexels-photo-3845320.jpeg',
     seo: {
       title: 'Fibroplasty',
       description: 'Non-surgical fibroplasty treatment using plasma technology for skin tightening and lifting.',
@@ -239,6 +248,7 @@ Results develop gradually over several weeks with optimal outcomes achieved thro
       'Gradual natural results'
     ],
     icon: Sun,
+    image: 'https://images.pexels.com/photos/3997987/pexels-photo-3997987.jpeg',
     seo: {
       title: 'Whitening Injections',
       description: 'Professional skin whitening injections for brighter, more even skin tone and radiant complexion.',
@@ -263,6 +273,7 @@ Results are immediate with plumper, more radiant skin after just one session. Re
       'Addresses multiple concerns'
     ],
     icon: Droplets,
+    image: 'https://images.pexels.com/photos/3997988/pexels-photo-3997988.jpeg',
     seo: {
       title: 'Hydia Facial',
       description: 'Luxury hydration facial treatment for deep cleansing and glowing, refreshed skin.',
@@ -287,6 +298,7 @@ All procedures follow strict hygiene and safety protocols. Post-treatment care i
       'Clear smooth skin'
     ],
     icon: Shield,
+    image: 'https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg',
     seo: {
       title: 'Skin Tag & Mole Removal',
       description: 'Professional and safe removal of skin tags and moles with minimal scarring.',
@@ -311,6 +323,7 @@ Each treatment plan is highly customized based on facial analysis, bone structur
       'Comprehensive treatment'
     ],
     icon: Shapes,
+    image: 'https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg',
     seo: {
       title: 'Face Reshaping',
       description: 'Non-surgical facial contouring and reshaping for enhanced definition, symmetry, and facial harmony.',

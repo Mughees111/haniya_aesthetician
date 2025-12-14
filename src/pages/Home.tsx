@@ -69,7 +69,7 @@ export default function Home() {
                 </div>
                 <div className="h-12 w-px bg-primary-200"></div>
                 <div>
-                  <div className="text-4xl font-bold gradient-text">12+</div>
+                  <div className="text-4xl font-bold gradient-text">50+</div>
                   <div className="text-gray-600">Treatments</div>
                 </div>
                 <div className="h-12 w-px bg-primary-200"></div>
@@ -149,6 +149,7 @@ export default function Home() {
                   title={service.title}
                   description={service.shortDescription}
                   icon={service.icon}
+                  image={service.image}
                   link={`/services/${service.slug}`}
                 />
               </motion.div>

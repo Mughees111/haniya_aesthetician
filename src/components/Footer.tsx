@@ -6,12 +6,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-primary-50 via-rose-50 to-primary-100 pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-primary-50 via-secondary-50 to-primary-100 pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-rose-500 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xl">H</span>
               </div>
               <span className="text-xl font-semibold gradient-text">{siteConfig.personal.name}</span>

@@ -25,7 +25,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-rose-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <span className="text-xl font-semibold gradient-text">{siteConfig.personal.name}</span>
@@ -38,7 +38,7 @@ export default function Header() {
                 to={link.path}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'bg-gradient-to-r from-primary-500 to-rose-500 text-white'
+                    ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white'
                     : 'text-gray-700 hover:bg-primary-50'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function Header() {
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-3 rounded-lg mb-2 transition-all duration-300 ${
                     isActive(link.path)
-                      ? 'bg-gradient-to-r from-primary-500 to-rose-500 text-white'
+                      ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white'
                       : 'text-gray-700 hover:bg-primary-50'
                   }`}
                 >

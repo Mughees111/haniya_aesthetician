@@ -16,10 +16,10 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-rose-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 to-secondary-400 bg-clip-text text-transparent;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary-50 via-rose-50 to-primary-100;
+    @apply bg-gradient-to-br from-primary-50 via-secondary-50 to-primary-100;
   }
 }
