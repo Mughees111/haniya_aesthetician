@@ -12,6 +12,19 @@ import {
   Shield,
   Shapes
 } from 'lucide-react';
+import botox from '../assets/botox.jpeg';
+import face_prp from '../assets/face_prp.jpeg';
+import fat_dissolver from '../assets/fat_dissolver.jpeg';
+import fibroplastybotox from '../assets/fibroplasty.jpeg';
+import filler from '../assets/filler.jpeg';
+import hair_prp from '../assets/hair_prp.jpeg';
+import hydra_facial from '../assets/hydra_facial.jpeg';
+import laser from '../assets/laser.jpeg';
+import liquid_rhinoplasty from '../assets/liquid_rhinoplasty.jpeg';
+import skin_tightning from '../assets/skin_tightning.jpeg';
+import whitening_injection from '../assets/whitening_injection.jpeg';
+import skinTag from '../assets/skinTag.jpeg';
+import faceReshaping from '../assets/faceReshaping.jpeg';
 
 export interface Service {
   id: string;
@@ -22,11 +35,14 @@ export interface Service {
   benefits: string[];
   icon: any;
   image: string;
+  howToSteps?: string[];
+  faqs?: { question: string; answer: string }[];
   seo: {
     title: string;
     description: string;
     keywords: string;
   };
+
 }
 
 export const services: Service[] = [
@@ -48,12 +64,25 @@ Botox can be performed in clinical settings and selected cases as an on-call ser
       'Long-lasting effects'
     ],
     icon: Sparkles,
-    image: 'https://images.pexels.com/photos/3738381/pexels-photo-3738381.jpeg',
+    image: botox,
     seo: {
       title: 'Botox Treatment',
       description: 'Expert Botox treatments for wrinkles, fine lines, and facial rejuvenation performed by a certified aesthetician with 4+ years experience.',
       keywords: 'botox, wrinkle treatment, anti-aging, facial rejuvenation, aesthetic treatment'
-    }
+    },
+    howToSteps: [
+      'Consultation and facial assessment',
+      'Skin cleansing and marking',
+      'Precise Botox injections',
+      'Post-treatment care instructions',
+      'Follow-up for optimal results'
+    ],
+    faqs: [
+      { question: 'How long does Botox last?', answer: 'Results typically last 3-6 months.' },
+      { question: 'Is Botox painful?', answer: 'Minimal discomfort with fine needles and optional numbing.' },
+      { question: 'When do results appear?', answer: 'Visible in 3-7 days, full effect in 2 weeks.' }
+    ]
+
   },
   {
     id: '2',
@@ -73,12 +102,24 @@ Every procedure is performed with precision, prioritizing client safety, comfort
       'Customized to facial structure'
     ],
     icon: Droplets,
-    image: 'https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg',
+    image: filler,
     seo: {
       title: 'Dermal Fillers',
       description: 'Professional dermal filler treatments to restore volume and enhance facial contours with natural-looking results.',
       keywords: 'dermal fillers, facial fillers, lip fillers, cheek augmentation, aesthetic injections'
-    }
+    },
+    howToSteps: [
+      'Facial analysis and consultation',
+      'Skin preparation and numbing',
+      'Strategic filler placement',
+      'Gentle molding for symmetry',
+      'Aftercare guidance'
+    ],
+    faqs: [
+      { question: 'How long do fillers last?', answer: '6-18 months depending on area and product.' },
+      { question: 'Is there downtime?', answer: 'Minimal – possible mild swelling for 1-2 days.' },
+      { question: 'Are fillers reversible?', answer: 'Yes, hyaluronic acid fillers can be dissolved if needed.' }
+    ]
   },
   {
     id: '3',
@@ -98,12 +139,25 @@ I perform comprehensive facial analysis before treatment to ensure the results c
       'Enhances facial symmetry'
     ],
     icon: Wind,
-    image: 'https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg',
+    image: liquid_rhinoplasty,
     seo: {
       title: 'Liquid Rhinoplasty',
       description: 'Non-surgical nose reshaping with dermal fillers for improved facial symmetry and balance.',
       keywords: 'liquid rhinoplasty, non-surgical nose job, nose fillers, nose reshaping, aesthetic nose treatment'
-    }
+    },
+    howToSteps: [
+      'Nasal and facial profile assessment',
+      'Discussion of goals',
+      'Topical numbing',
+      'Precise filler injection',
+      'Symmetry adjustment',
+      'Immediate result review'
+    ],
+    faqs: [
+      { question: 'How long does it last?', answer: '12-18 months.' },
+      { question: 'Is it painful?', answer: 'Minimal discomfort with numbing.' },
+      { question: 'Can it make the nose smaller?', answer: 'Creates illusion of refinement through better proportions.' }
+    ]
   },
   {
     id: '4',
@@ -123,12 +177,24 @@ All procedures follow strict safety protocols with proper skin assessment and po
       'Advanced technology'
     ],
     icon: Zap,
-    image: 'https://images.pexels.com/photos/3997986/pexels-photo-3997986.jpeg',
+    image: laser,
     seo: {
       title: 'Laser Treatments',
       description: 'Professional laser treatments for hair removal, skin rejuvenation, and pigmentation correction.',
       keywords: 'laser treatment, laser hair removal, skin rejuvenation, pigmentation treatment, laser therapy'
-    }
+    },
+    howToSteps: [
+      'Skin type and concern assessment',
+      'Protective eyewear placement',
+      'Laser application in targeted areas',
+      'Cooling and soothing post-treatment',
+      'Aftercare instructions'
+    ],
+    faqs: [
+      { question: 'How many sessions needed?', answer: 'Varies by concern – usually 4-8 sessions.' },
+      { question: 'Is laser safe?', answer: 'Yes, when performed by trained professionals.' },
+      { question: 'Any downtime?', answer: 'Minimal redness for a few hours.' }
+    ]
   },
   {
     id: '5',
@@ -148,12 +214,24 @@ The procedure involves drawing a small amount of blood, processing it to concent
       'Minimal side effects'
     ],
     icon: Activity,
-    image: 'https://images.pexels.com/photos/3845328/pexels-photo-3845328.jpeg',
+    image: hair_prp,
     seo: {
       title: 'PRP Therapy (Hair & Face)',
       description: 'Natural PRP therapy for hair restoration and facial rejuvenation using your body\'s own healing properties.',
       keywords: 'PRP therapy, platelet rich plasma, hair restoration, facial rejuvenation, natural treatment'
-    }
+    },
+    howToSteps: [
+      'Blood draw',
+      'Centrifugation to isolate PRP',
+      'Skin/scalp preparation',
+      'PRP injection or microneedling',
+      'Post-care guidance'
+    ],
+    faqs: [
+      { question: 'How many sessions?', answer: '3-4 sessions recommended.' },
+      { question: 'Is PRP painful?', answer: 'Mild discomfort with numbing.' },
+      { question: 'When do results show?', answer: 'Skin: 3-4 weeks; Hair: 3-6 months.' }
+    ]
   },
   {
     id: '6',
@@ -173,12 +251,24 @@ Treatment sessions typically last 15-20 minutes with minimal discomfort. Multipl
       'Minimal downtime'
     ],
     icon: Scissors,
-    image: 'https://images.pexels.com/photos/3985371/pexels-photo-3985371.jpeg',
+    image: fat_dissolver,
     seo: {
       title: 'Fat Dissolver Injections',
       description: 'Non-surgical fat reduction treatments to eliminate stubborn fat and enhance facial contours.',
       keywords: 'fat dissolver, double chin treatment, fat reduction, non-surgical liposuction, contouring'
-    }
+    },
+    howToSteps: [
+      'Area marking and assessment',
+      'Local numbing',
+      'Precise injections',
+      'Post-treatment massage',
+      'Aftercare advice'
+    ],
+    faqs: [
+      { question: 'How many sessions?', answer: '2-4 sessions usually.' },
+      { question: 'Is it permanent?', answer: 'Yes, destroyed fat cells do not return.' },
+      { question: 'Any swelling?', answer: 'Temporary swelling for a few days.' }
+    ]
   },
   {
     id: '7',
@@ -198,12 +288,24 @@ Results develop gradually over several months as new collagen forms. Multiple se
       'Long-lasting effects'
     ],
     icon: RefreshCw,
-    image: 'https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg',
+    image: skin_tightning,
     seo: {
       title: 'Skin Tightening',
       description: 'Advanced non-surgical skin tightening treatments to firm and lift sagging skin naturally.',
       keywords: 'skin tightening, skin firming, non-surgical facelift, collagen stimulation, anti-aging'
-    }
+    },
+    howToSteps: [
+      'Skin cleansing',
+      'Device application with controlled energy',
+      'Collagen stimulation phase',
+      'Cooling and soothing',
+      'Post-treatment care'
+    ],
+    faqs: [
+      { question: 'How many sessions?', answer: '3-6 sessions for best results.' },
+      { question: 'Is there downtime?', answer: 'None – resume activities immediately.' },
+      { question: 'When do results appear?', answer: 'Gradual over 3-6 months.' }
+    ]
   },
   {
     id: '8',
@@ -223,12 +325,24 @@ The procedure is precise and targeted, making it ideal for areas where surgical 
       'Precise treatment'
     ],
     icon: Zap,
-    image: 'https://images.pexels.com/photos/3845320/pexels-photo-3845320.jpeg',
+    image: fibroplastybotox,
     seo: {
       title: 'Fibroplasty',
       description: 'Non-surgical fibroplasty treatment using plasma technology for skin tightening and lifting.',
       keywords: 'fibroplasty, plasma pen, skin tightening, eyelid lift, non-surgical lift'
-    }
+    },
+    howToSteps: [
+      'Skin preparation and numbing',
+      'Plasma pen application in grid pattern',
+      'Controlled micro-injuries',
+      'Healing stimulation',
+      'Aftercare protocol'
+    ],
+    faqs: [
+      { question: 'How long is recovery?', answer: '5-7 days of small crusts.' },
+      { question: 'Is it painful?', answer: 'Topical numbing used for comfort.' },
+      { question: 'How long do results last?', answer: 'Up to 3 years with good skincare.' }
+    ]
   },
   {
     id: '9',
@@ -248,12 +362,24 @@ Results develop gradually over several weeks with optimal outcomes achieved thro
       'Gradual natural results'
     ],
     icon: Sun,
-    image: 'https://images.pexels.com/photos/3997987/pexels-photo-3997987.jpeg',
+    image: whitening_injection,
     seo: {
       title: 'Whitening Injections',
       description: 'Professional skin whitening injections for brighter, more even skin tone and radiant complexion.',
       keywords: 'whitening injections, glutathione, skin brightening, pigmentation treatment, skin whitening'
-    }
+    },
+    howToSteps: [
+      'Consultation and dosage planning',
+      'IV or IM administration',
+      'Series of sessions',
+      'Maintenance schedule',
+      'Skincare support'
+    ],
+    faqs: [
+      { question: 'How many sessions needed?', answer: '10-15 initial sessions.' },
+      { question: 'Are results permanent?', answer: 'Maintenance required for sustained effect.' },
+      { question: 'Is it safe?', answer: 'Yes, when administered professionally.' }
+    ]
   },
   {
     id: '10',
@@ -273,12 +399,24 @@ Results are immediate with plumper, more radiant skin after just one session. Re
       'Addresses multiple concerns'
     ],
     icon: Droplets,
-    image: 'https://images.pexels.com/photos/3997988/pexels-photo-3997988.jpeg',
+    image: hydra_facial,
     seo: {
       title: 'Hydia Facial',
       description: 'Luxury hydration facial treatment for deep cleansing and glowing, refreshed skin.',
       keywords: 'hydia facial, hydrafacial, hydration treatment, facial treatment, skin rejuvenation'
-    }
+    },
+    howToSteps: [
+      'Deep cleansing',
+      'Gentle exfoliation',
+      'Extraction',
+      'Hydration infusion',
+      'Protection and glow finish'
+    ],
+    faqs: [
+      { question: 'How often should I get it?', answer: 'Monthly for maintenance.' },
+      { question: 'Is there downtime?', answer: 'None – instant glow.' },
+      { question: 'Suitable for sensitive skin?', answer: 'Yes, fully customizable.' }
+    ]
   },
   {
     id: '11',
@@ -298,12 +436,24 @@ All procedures follow strict hygiene and safety protocols. Post-treatment care i
       'Clear smooth skin'
     ],
     icon: Shield,
-    image: 'https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg',
+    image: skinTag,
     seo: {
       title: 'Skin Tag & Mole Removal',
       description: 'Professional and safe removal of skin tags and moles with minimal scarring.',
       keywords: 'skin tag removal, mole removal, skin lesion removal, aesthetic dermatology'
-    }
+    },
+    howToSteps: [
+      'Assessment of lesion',
+      'Local anesthetic',
+      'Precise removal technique',
+      'Wound care',
+      'Healing follow-up'
+    ],
+    faqs: [
+      { question: 'Is removal painful?', answer: 'Minimal with local anesthetic.' },
+      { question: 'Will it leave a scar?', answer: 'Minimal or none in most cases.' },
+      { question: 'How long to heal?', answer: '5-10 days.' }
+    ]
   },
   {
     id: '12',
@@ -323,12 +473,24 @@ Each treatment plan is highly customized based on facial analysis, bone structur
       'Comprehensive treatment'
     ],
     icon: Shapes,
-    image: 'https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg',
+    image: faceReshaping,
     seo: {
       title: 'Face Reshaping',
       description: 'Non-surgical facial contouring and reshaping for enhanced definition, symmetry, and facial harmony.',
       keywords: 'face reshaping, facial contouring, jawline definition, non-surgical facelift, facial sculpting'
-    }
+    },
+    howToSteps: [
+      'Full facial analysis',
+      'Custom treatment planning',
+      'Combination of fillers & relaxants',
+      'Precise sculpting',
+      'Final symmetry check'
+    ],
+    faqs: [
+      { question: 'How long do results last?', answer: '6-18 months depending on techniques.' },
+      { question: 'Is it noticeable?', answer: 'Subtle and natural enhancement.' },
+      { question: 'Can it slim the face?', answer: 'Yes, through contouring and definition.' }
+    ]
   }
 ];
 

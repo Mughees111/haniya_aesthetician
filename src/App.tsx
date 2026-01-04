@@ -8,6 +8,8 @@ import DigitalMarketing from './pages/DigitalMarketing';
 import MyWork from './pages/MyWork';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/my-work" element={<MyWork />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs" element={<Blog />} />
+          <Route path="/blogs/:slug" element={<BlogDetail />} />  {/* Yeh naya route add karo */}
         </Routes>
       </Layout>
     </Router>

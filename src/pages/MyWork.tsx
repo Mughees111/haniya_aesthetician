@@ -1,163 +1,254 @@
 import { motion } from 'framer-motion';
-import { Image, Video, Palette } from 'lucide-react';
+import { Palette, Play, Sparkles, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import beforeAfer1 from '../assets/beforeAfter/1.jpeg';
+import beforeAfer2 from '../assets/beforeAfter/2.jpeg';
+import beforeAfer3 from '../assets/beforeAfter/3.jpeg';
+import beforeAfer4 from '../assets/beforeAfter/4.jpeg';
+import beforeAfer5 from '../assets/beforeAfter/5.jpeg';
+import beforeAfer6 from '../assets/beforeAfter/6.jpeg';
+import beforeAfer7 from '../assets/beforeAfter/7.jpeg';
+import laserVideo1 from '../assets/videos/laser1.mp4';
+import prpVideo from '../assets/videos/prp1.mp4';
+import facePRP from '../assets/videos/facePRP.mp4';
+import PRP from '../assets/videos/PRP.mp4';
+
+import m1 from '../assets/digitalmarketing/crystalAesthetic1.jpeg';
+import m2 from '../assets/digitalmarketing/crystalAesthetic2.jpeg';
+import m3 from '../assets/digitalmarketing/crystalAesthetic3.jpeg';
+import m4 from '../assets/digitalmarketing/crystalAesthetic4.jpeg';
+import m5 from '../assets/digitalmarketing/primarycare1.jpeg';
+import m6 from '../assets/digitalmarketing/primarycare2.jpeg';
+import m7 from '../assets/digitalmarketing/primarycare3.jpeg';
+import m8 from '../assets/digitalmarketing/qp1.jpeg';
+
+const galleryItems = [
+  { media: laserVideo1, title: 'Carbon Laser Facial', type: 'video' },
+  { media: beforeAfer1, title: 'Micro-Needling + PRP', type: 'image' },
+  { media: facePRP, title: 'PRP Facial Treatment', type: 'video' },
+  { media: beforeAfer2, title: 'Botox & Fillers', type: 'image' },
+  { media: beforeAfer3, title: 'Non-Surgical Nose Reshaping', type: 'image' },
+  { media: prpVideo, title: 'PRP Vampire Facial', type: 'video' },
+  { media: beforeAfer4, title: 'Fibroblast Plasma', type: 'image' },
+  { media: PRP, title: 'PRP', type: 'video' },
+  { media: beforeAfer5, title: 'Lip Enhancement', type: 'image' },
+  { media: beforeAfer7, title: 'Double Chin Reduction', type: 'image' },
+];
+
+const marketingGallery = [
+  { media: m1, title: 'Instagram Post Design', type: 'image' },
+  { media: m2, title: 'Reels Cover', type: 'image' },
+  { media: m3, title: 'Brand Story Highlight', type: 'image' },
+  { media: m4, title: 'Promotional Graphic', type: 'image' },
+  { media: m5, title: 'Clinic Branding', type: 'image' },
+  { media: m6, title: 'Service Promotion', type: 'image' },
+  { media: m7, title: 'Social Media Ad', type: 'image' },
+  { media: m8, title: 'Before/After Template', type: 'image' },
+];
 
 export default function MyWork() {
   const [activeTab, setActiveTab] = useState<'aesthetic' | 'marketing'>('aesthetic');
 
-  const tabs = [
-    { id: 'aesthetic' as const, label: 'Aesthetic Work', icon: Image },
-    { id: 'marketing' as const, label: 'Marketing Designs', icon: Palette }
-  ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const aestheticWork = [
-    { id: 1, title: 'Botox Treatment', category: 'Before/After', type: 'image' },
-    { id: 2, title: 'Dermal Fillers', category: 'Before/After', type: 'image' },
-    { id: 3, title: 'Lip Enhancement', category: 'Before/After', type: 'image' },
-    { id: 4, title: 'PRP Therapy Results', category: 'Before/After', type: 'image' },
-    { id: 5, title: 'Liquid Rhinoplasty', category: 'Before/After', type: 'image' },
-    { id: 6, title: 'Treatment Procedure', category: 'Video', type: 'video' },
-    { id: 7, title: 'Skin Tightening', category: 'Before/After', type: 'image' },
-    { id: 8, title: 'Face Reshaping', category: 'Before/After', type: 'image' },
-    { id: 9, title: 'Laser Treatment', category: 'Before/After', type: 'image' }
-  ];
-
-  const marketingWork = [
-    { id: 1, title: 'Instagram Post Design', category: 'Social Media' },
-    { id: 2, title: 'Facebook Ad Creative', category: 'Advertising' },
-    { id: 3, title: 'Promotional Reel', category: 'Video Content' },
-    { id: 4, title: 'Brand Story Highlight', category: 'Social Media' },
-    { id: 5, title: 'Service Promotion', category: 'Advertising' },
-    { id: 6, title: 'Educational Content', category: 'Social Media' },
-    { id: 7, title: 'Campaign Design', category: 'Advertising' },
-    { id: 8, title: 'Testimonial Post', category: 'Social Media' },
-    { id: 9, title: 'Before/After Showcase', category: 'Content Creation' }
-  ];
-
-  const currentWork = activeTab === 'aesthetic' ? aestheticWork : marketingWork;
+  const currentGallery = activeTab === 'aesthetic' ? galleryItems : marketingGallery;
 
   return (
     <>
       <SEO
-        title="My Work"
-        description="View my portfolio of aesthetic treatments and digital marketing projects. Real results, professional work, and creative designs for beauty businesses."
-        keywords="aesthetic portfolio, treatment results, before after, beauty marketing portfolio, design work"
+        title="My Work & Client Results | Before After Transformations"
+        description="View real before & after photos, treatment results, and client transformations from Botox, fillers, PRP, and other aesthetic procedures by Ghadia Haider."
+        keywords="before after botox, fillers results Lahore, prp before after, aesthetic transformations"
       />
 
-      <section className="pt-32 pb-20 gradient-bg">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              My <span className="gradient-text">Work</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results from aesthetic treatments and creative digital marketing projects
-            </p>
-          </motion.div>
+      {/* Hero with Background Video */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={prpVideo} type="video/mp4" />
+        </video>
 
-          <div className="flex justify-center gap-4 mb-12">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-gradient-to-r from-primary-500 to-rose-500 text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-primary-50'
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/40 via-transparent to-rose-900/40" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            className="max-w-5xl mx-auto"
+          >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+              Real <span className="gradient-text">Transformations</span>
+              <br />
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl block mt-4">
+                That Speak for Themselves
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed px-4">
+              Every treatment is performed with precision, care, and artistry.
+              Watch and see the confidence I help my clients rediscover.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveTab('aesthetic')}
+                className={`flex items-center justify-center gap-3 px-8 py-5 rounded-full text-lg font-semibold transition-all ${activeTab === 'aesthetic'
+                  ? 'bg-white text-primary-600 shadow-2xl'
+                  : 'bg-white/20 backdrop-blur-md text-white border border-white/30'
                   }`}
-                >
-                  <Icon className="w-5 h-5" />
-                  {tab.label}
-                </button>
-              );
-            })}
+              >
+                <Sparkles className="w-6 h-6" />
+                Aesthetic Results
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveTab('marketing')}
+                className={`flex items-center justify-center gap-3 px-8 py-5 rounded-full text-lg font-semibold transition-all ${activeTab === 'marketing'
+                  ? 'bg-white text-primary-600 shadow-2xl'
+                  : 'bg-white/20 backdrop-blur-md text-white border border-white/30'
+                  }`}
+              >
+                <Palette className="w-6 h-6" />
+                Marketing Designs
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Gallery Section - Responsive Grid */}
+      <section className="py-20 sm:py-24 bg-gray-50/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {currentGallery.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="group relative aspect-square rounded-3xl overflow-hidden shadow-xl cursor-pointer"
+                onClick={() => {
+                  if (item.type === 'video') {
+                    const modal = document.getElementById(`video-modal-${index}`);
+                    if (modal instanceof HTMLDialogElement) modal.showModal();
+                  }
+                }}
+              >
+                {item.type === 'video' ? (
+                  <>
+                    {/* Preview Video - Muted */}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+                      <source src={item.media} type="video/mp4" />
+                    </video>
+
+                    {/* Play Icon on Hover/Tap */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl">
+                        <Play className="w-8 h-8 sm:w-10 sm:h-10 text-primary-600 ml-1" fill="currentColor" />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <img
+                    src={item.media}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
+
+                {/* Overlay with Title */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-6">
+                  <div className="text-white">
+                    <h3 className="text-base sm:text-lg font-semibold">{item.title || 'Social Media Design'}</h3>
+                    <p className="text-xs sm:text-sm opacity-90 mt-1">
+                      {item.type === 'video' ? 'Tap to Watch Full' : 'Before & After'}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      {/* CTA Section */}
+      <section className="py-24 sm:py-28 relative overflow-hidden bg-gradient-to-br from-primary-50 via-rose-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            key={activeTab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="grid md:grid-cols-3 gap-8">
-              {currentWork.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-primary-100 to-rose-100 cursor-pointer"
-                >
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                    {activeTab === 'aesthetic' && item.type === 'video' ? (
-                      <Video className="w-16 h-16 text-primary-400 mb-4" />
-                    ) : (
-                      <Image className="w-16 h-16 text-primary-400 mb-4" />
-                    )}
-                    <div className="text-2xl font-bold text-primary-600/50 mb-2">
-                      {item.title}
-                    </div>
-                    <div className="text-sm text-primary-500/70 font-medium">
-                      {item.category}
-                    </div>
-                  </div>
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end p-6">
-                    <div className="text-white text-center">
-                      <div className="font-semibold text-lg mb-1">{item.title}</div>
-                      <div className="text-sm text-white/80">{item.category}</div>
-                      <div className="mt-3 text-xs text-white/70">
-                        Click to view full image
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="py-20 gradient-bg">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-12 text-center max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl font-bold mb-6">
-              Want to See <span className="gradient-text">More</span>?
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
+              Ready for Your Own <span className="gradient-text">Glow-Up</span>?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              These are placeholder images. Connect with me to see my complete portfolio of aesthetic treatments and digital marketing projects
+            <p className="text-xl sm:text-2xl text-gray-700 mb-12 leading-relaxed px-4">
+              Let’s create your dream look together – naturally, safely, beautifully.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <motion.a
-                href="https://wa.me/93221401833?text=Hi, I would like to see your complete portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full bg-gradient-to-r from-primary-500 to-rose-500 text-white hover:shadow-lg hover:shadow-primary-300/50 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Me on WhatsApp
-              </motion.a>
-            </div>
+
+            <motion.a
+              href="https://wa.me/93221401833?text=Hi! I'd love to book a consultation and see more of your amazing work!"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-10 py-5 text-xl font-semibold rounded-full bg-gradient-to-r from-primary-600 to-rose-600 text-white shadow-2xl hover:shadow-primary-400/50 transition-all"
+            >
+              Book Your Consultation
+              <ArrowRight className="w-6 h-6" />
+            </motion.a>
           </motion.div>
         </div>
       </section>
+
+      {/* Video Modals - Full Screen with Sound */}
+      {galleryItems
+        .filter(item => item.type === 'video')
+        .map((item, index) => {
+          const originalIndex = galleryItems.findIndex(g => g.media === item.media);
+          return (
+            <dialog key={originalIndex} id={`video-modal-${originalIndex}`} className="modal backdrop:bg-black/90">
+              <div className="modal-box max-w-4xl w-full p-0 bg-black rounded-3xl overflow-hidden">
+                <button
+                  onClick={(e) => e.currentTarget.closest('dialog')?.close()}
+                  className="btn btn-circle btn-ghost text-white text-3xl absolute top-4 right-4 z-10 hover:bg-white/20"
+                >
+                  ×
+                </button>
+                <video
+                  controls
+                  autoPlay
+                  muted
+                  className="w-full aspect-video">
+                  <source src={item.media} type="video/mp4" />
+                  Your browser does not support video.
+                </video>
+              </div>
+            </dialog>
+          );
+        })}
     </>
   );
 }

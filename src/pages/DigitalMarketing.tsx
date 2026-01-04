@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import SEO from '../components/SEO';
 import { siteConfig } from '../config/siteConfig';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function DigitalMarketing() {
   const navigate = useNavigate();
@@ -55,6 +56,9 @@ export default function DigitalMarketing() {
     }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <>
       <SEO

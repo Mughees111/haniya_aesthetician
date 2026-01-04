@@ -3,10 +3,13 @@ import { Star, Quote } from 'lucide-react';
 import TestimonialCard from '../components/TestimonialCard';
 import SEO from '../components/SEO';
 import { testimonials } from '../data/testimonials';
+import { useEffect } from 'react';
 
 export default function Reviews() {
   const averageRating = testimonials.reduce((acc, t) => acc + t.rating, 0) / testimonials.length;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <>
       <SEO
@@ -39,11 +42,10 @@ export default function Reviews() {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-8 h-8 ${
-                      i < Math.floor(averageRating)
+                    className={`w-8 h-8 ${i < Math.floor(averageRating)
                         ? 'text-yellow-400 fill-yellow-400'
                         : 'text-gray-300'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>

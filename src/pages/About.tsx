@@ -41,9 +41,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Me"
-        description={`Learn more about ${siteConfig.personal.name}, a professional aesthetician with ${siteConfig.personal.experience} of experience in advanced aesthetic treatments.`}
-        keywords="professional aesthetician, beauty expert, aesthetic specialist, medical aesthetics"
+        title="About Ghadia Haider - Certified Aesthetician in Lahore"
+        description={`Learn about Ghadia Haider, a certified professional aesthetician with ${siteConfig.personal.experience} experience in Botox, dermal fillers, PRP, laser treatments, and advanced aesthetics across Lahore.`}
+        keywords="about aesthetician, ghadi haider aesthetician, beauty expert Lahore, certified aesthetician Lahore"
       />
 
       <section className="pt-32 pb-20 gradient-bg">

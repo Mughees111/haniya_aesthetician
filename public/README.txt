@@ -1,10 +1,10 @@
 IMPORTANT: Add your professional photo here
 
-Please add your professional photo named "haniya.jpeg" in this public folder.
+Please add your professional photo named "Ghadia.jpeg" in this public folder.
 
 The image should be:
 - A high-quality professional photo
-- Named exactly: haniya.jpeg (lowercase)
+- Named exactly: Ghadia.jpeg (lowercase)
 - Recommended size: At least 800x800 pixels
 - Format: JPEG
 

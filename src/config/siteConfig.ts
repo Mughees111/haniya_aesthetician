@@ -1,15 +1,19 @@
+import profileImg from './haniya.jpeg'; // Yeh rakh sakte ho components ke liye, lekin schema mein URL use karo
+
 export const siteConfig = {
   personal: {
-    name: 'Haniya Haider',
+    name: 'Ghadia Haider',
     title: 'Professional Aesthetician',
     experience: '4+ years',
-    phone: '+93221401833',
-    whatsapp: '+93221401833',
-    email: 'haniya.aesthetics@example.com',
-    location: 'Available for Clinic Collaborations',
-    image: '/haniya.jpeg',
+    phone: '+923297941191',
+    whatsapp: '+923297941191',
+    email: 'ddrghadia@gmail.com',
+    location: 'Lahore (Available Nationwide for Clinic Collaborations & On-Call Services)', // Yahan apna city add kar do e.g., 'Karachi, Lahore & Islamabad'
+    image: profileImg,
+    // 'https://ghadia.qwpcorp.com/haniya.jpeg', // Direct URL daalo (image ka actual path), import ki jagah
     tagline: 'Advanced Aesthetic & Anti-Aging Treatments',
-    description: 'Delivering safe, results-driven aesthetic procedures with 4+ years of hands-on experience. Available for clinic collaborations and on-call services.',
+    description: 'Delivering safe, results-driven aesthetic procedures with 4+ years of hands-on experience. Specializing in Botox, dermal fillers, PRP therapy, laser treatments, and on-call services across Lahore.',
+    
   },
   social: {
     instagram: 'https://instagram.com',
@@ -17,16 +21,21 @@ export const siteConfig = {
     linkedin: 'https://linkedin.com',
   },
   business: {
-    name: 'Haniya Haider - Professional Aesthetician',
+    name: 'Ghadia Haider - Professional Aesthetician',
     type: 'Aesthetic Medicine',
     schema: {
       '@context': 'https://schema.org',
-      '@type': 'MedicalBusiness',
-      name: 'Haniya Haider - Professional Aesthetician',
-      image: '/haniya.jpeg',
-      description: 'Professional aesthetician specializing in advanced aesthetic and anti-aging treatments with 4+ years of experience.',
+      '@type': 'Person', // Better for freelance/mobile aesthetician (ProfessionalService deprecated hai)
+      name: 'Ghadia Haider',
+      jobTitle: 'Professional Aesthetician',
+      image: 'https://ghadia.qwpcorp.com/haniya.jpeg', // Direct URL
+      description: 'Certified aesthetician with 4+ years experience specializing in Botox, dermal fillers, PRP therapy, laser treatments, fat dissolver injections, liquid rhinoplasty, and advanced anti-aging procedures. Available for clinic collaborations and on-call services nationwide in Lahore.',
+      url: 'https://ghadia.qwpcorp.com',
+      telephone: '+923297941191',
+      email: 'ddrghadia@gmail.com',
+      knowsAbout: ['Botox', 'Dermal Fillers', 'PRP Therapy', 'Laser Treatments', 'Anti-Aging Treatments', 'Aesthetic Medicine'],
+      areaServed: 'Lahore', // Agar specific cities hain to array mein daal do: ['Karachi', 'Lahore', 'Islamabad']
       priceRange: '$$',
-      telephone: '+93221401833',
     },
   },
   colors: {
@@ -64,11 +73,11 @@ export const siteConfig = {
     },
   },
   seo: {
-    titleTemplate: '%s | Haniya Haider - Professional Aesthetician',
-    defaultTitle: 'Haniya Haider - Professional Aesthetician | Advanced Aesthetic Treatments',
-    defaultDescription: 'Professional aesthetician with 4+ years of experience in advanced aesthetic and anti-aging treatments. Specializing in Botox, fillers, laser treatments, PRP therapy, and more.',
-    siteUrl: 'https://haniyahaider.com',
-    keywords: 'aesthetician, botox, dermal fillers, laser treatment, PRP therapy, anti-aging, aesthetic treatments, professional aesthetician',
+    titleTemplate: '%s | Ghadia Haider - Professional Aesthetician in Lahore',
+    defaultTitle: 'Ghadia Haider - Professional Aesthetician | Botox, Fillers & PRP in Lahore',
+    defaultDescription: 'Certified professional aesthetician offering Botox, dermal fillers, PRP therapy, laser treatments, liquid rhinoplasty, and fat dissolver injections. 4+ years experience with safe, natural results. Available nationwide for clinics and on-call services.',
+    siteUrl: 'https://ghadia.qwpcorp.com',
+    keywords: 'professional aesthetician, botox Lahore, dermal fillers Lahore, prp therapy Lahore, laser treatment Lahore, lip fillers, anti aging treatments, botox near me, fillers near me, liquid rhinoplasty, fat dissolver injections, aesthetic treatments Lahore, beauty expert Lahore, skin rejuvenation',
   },
 };
 
