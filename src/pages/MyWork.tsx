@@ -16,9 +16,9 @@ import facePRP from '../assets/videos/facePRP.mp4';
 import PRP from '../assets/videos/PRP.mp4';
 
 import m1 from '../assets/digitalmarketing/crystalAesthetic1.jpeg';
-import m2 from '../assets/digitalmarketing/crystalAesthetic2.jpeg';
-import m3 from '../assets/digitalmarketing/crystalAesthetic3.jpeg';
-import m4 from '../assets/digitalmarketing/crystalAesthetic4.jpeg';
+import m2 from '../assets/digitalmarketing/crystalaesthetic2.jpeg';
+import m3 from '../assets/digitalmarketing/crystalaesthetic3.jpeg';
+import m4 from '../assets/digitalmarketing/crystalaesthetic4.jpeg';
 import m5 from '../assets/digitalmarketing/primarycare1.jpeg';
 import m6 from '../assets/digitalmarketing/primarycare2.jpeg';
 import m7 from '../assets/digitalmarketing/primarycare3.jpeg';
