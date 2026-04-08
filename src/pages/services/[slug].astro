@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceDetailRoute from '../../react/routes/ServiceDetailRoute';
+import { services, getServiceBySlug } from '../../data/services';
+import { buildServiceSchemaJson } from '../../seo/servicePageSchema';
+import { siteConfig } from '../../config/siteConfig';
+import { resolveAsset } from '../../utils/resolveAsset';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const { slug } = Astro.params;
+const service = getServiceBySlug(slug!);
+
+if (!service) {
+  return Astro.redirect('/aesthetic-services');
+}
+
+const title = `${service.seo.title} in Lahore | Ghadia Haider Aesthetician`;
+const description = `${service.seo.description} Safe, professional service in Lahore with natural results.`;
+const keywords = `${service.seo.keywords}, aesthetic treatment Lahore Pakistan, certified aesthetician Ghadia Haider, ${siteConfig.seo.keywords}`;
+const schemaJson = buildServiceSchemaJson(slug!);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={resolveAsset(service.image)}
+  schemaJson={schemaJson}
+>
+  <ServiceDetailRoute
+    client:load
+    currentPath={Astro.url.pathname}
+    slug={slug!}
+  />
+</BaseLayout>

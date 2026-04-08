@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import TestimonialCard from '../components/TestimonialCard';
-import SEO from '../components/SEO';
 import { testimonials } from '../data/testimonials';
 import { useEffect } from 'react';
 
@@ -12,12 +11,6 @@ export default function Reviews() {
   }, [])
   return (
     <>
-      <SEO
-        title="Client Reviews"
-        description="Read what my clients say about their aesthetic treatment experiences. Real reviews from satisfied clients sharing their transformation stories."
-        keywords="client reviews, testimonials, aesthetic treatment reviews, beauty treatment feedback"
-      />
-
       <section className="pt-32 pb-20 gradient-bg">
         <div className="container mx-auto px-4">
           <motion.div

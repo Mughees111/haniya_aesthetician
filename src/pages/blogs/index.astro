@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogRoute from '../../react/routes/BlogRoute';
+import { siteConfig } from '../../config/siteConfig';
+import { getBlogListSchemaJson } from '../../seo/blogListSchema';
+
+const title = 'Aesthetics Blog | Tips & Guides by Ghadia Haider in Lahore';
+const description =
+  'Latest insights on Botox, dermal fillers, PRP therapy, laser treatments, and non-surgical beauty trends in Lahore from certified aesthetician Ghadia Haider.';
+const keywords = `aesthetics blog Lahore, Botox aftercare Pakistan, filler guide Lahore, PRP blog, laser skin blog, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  schemaJson={getBlogListSchemaJson()}
+>
+  <BlogRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

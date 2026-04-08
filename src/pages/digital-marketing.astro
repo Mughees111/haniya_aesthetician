@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DigitalMarketingRoute from '../react/routes/DigitalMarketingRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'Digital Marketing Services for Beauty & Aesthetic Brands';
+const description =
+  'Professional digital marketing for beauty and aesthetic clinics: Meta Ads, Canva designs, reels editing, and content strategy to grow your practice in Lahore and beyond.';
+const keywords = `beauty clinic marketing Lahore, aesthetic Instagram marketing, Meta ads aesthetician, social media for medspa Pakistan, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <DigitalMarketingRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

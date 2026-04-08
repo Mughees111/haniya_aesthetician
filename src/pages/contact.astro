@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactRoute from '../react/routes/ContactRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'Contact Ghadia Haider | Book Aesthetic Consultation in Lahore';
+const description = `Contact professional aesthetician Ghadia Haider for Botox, fillers, PRP consultations, clinic collaborations, or on-call aesthetic services in Lahore. WhatsApp: ${siteConfig.personal.whatsapp}`;
+const keywords = `book aesthetician Lahore, WhatsApp Botox Lahore, clinic collaboration aesthetician Pakistan, on-call injector Lahore, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <ContactRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

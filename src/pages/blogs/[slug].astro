@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogDetailRoute from '../../react/routes/BlogDetailRoute';
+import { blogDetailPosts } from '../../data/blogDetailPosts';
+import { buildBlogArticleSchemaJson } from '../../seo/blogArticleSchema';
+import { siteConfig } from '../../config/siteConfig';
+
+export function getStaticPaths() {
+  return blogDetailPosts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = blogDetailPosts.find((p) => p.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/blogs');
+}
+
+const plain = post.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const title = `${post.title} | Ghadia Haider Blog`;
+const description =
+  plain.slice(0, 155) + (plain.length > 155 ? '…' : '');
+const keywords = `aesthetic blog Lahore, beauty tips Pakistan, non-surgical aesthetics, ${post.title}, Botox fillers PRP laser Lahore, ${siteConfig.seo.keywords}`;
+const schemaJson = buildBlogArticleSchemaJson(slug!);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={post.heroImage}
+  ogType="article"
+  schemaJson={schemaJson}
+>
+  <BlogDetailRoute client:load currentPath={Astro.url.pathname} slug={slug!} />
+</BaseLayout>

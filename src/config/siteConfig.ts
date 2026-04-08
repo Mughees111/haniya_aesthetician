@@ -10,7 +10,7 @@ export const siteConfig = {
     email: 'ddrghadia@gmail.com',
     location: 'Lahore (Available Nationwide for Clinic Collaborations & On-Call Services)', // Yahan apna city add kar do e.g., 'Karachi, Lahore & Islamabad'
     image: profileImg,
-    // 'https://ghadia.qwpcorp.com/haniya.jpeg', // Direct URL daalo (image ka actual path), import ki jagah
+    // 'https://ghadia.vercel.app/haniya.jpeg', // Direct URL daalo (image ka actual path), import ki jagah
     tagline: 'Advanced Aesthetic & Anti-Aging Treatments',
     description: 'Delivering safe, results-driven aesthetic procedures with 4+ years of hands-on experience. Specializing in Botox, dermal fillers, PRP therapy, laser treatments, and on-call services across Lahore.',
     
@@ -28,9 +28,9 @@ export const siteConfig = {
       '@type': 'Person', // Better for freelance/mobile aesthetician (ProfessionalService deprecated hai)
       name: 'Ghadia Haider',
       jobTitle: 'Professional Aesthetician',
-      image: 'https://ghadia.qwpcorp.com/haniya.jpeg', // Direct URL
+      image: 'https://ghadia.vercel.app/haniya.jpeg', // Direct URL
       description: 'Certified aesthetician with 4+ years experience specializing in Botox, dermal fillers, PRP therapy, laser treatments, fat dissolver injections, liquid rhinoplasty, and advanced anti-aging procedures. Available for clinic collaborations and on-call services nationwide in Lahore.',
-      url: 'https://ghadia.qwpcorp.com',
+      url: 'https://ghadia.vercel.app',
       telephone: '+923297941191',
       email: 'ddrghadia@gmail.com',
       knowsAbout: ['Botox', 'Dermal Fillers', 'PRP Therapy', 'Laser Treatments', 'Anti-Aging Treatments', 'Aesthetic Medicine'],
@@ -76,8 +76,9 @@ export const siteConfig = {
     titleTemplate: '%s | Ghadia Haider - Professional Aesthetician in Lahore',
     defaultTitle: 'Ghadia Haider - Professional Aesthetician | Botox, Fillers & PRP in Lahore',
     defaultDescription: 'Certified professional aesthetician offering Botox, dermal fillers, PRP therapy, laser treatments, liquid rhinoplasty, and fat dissolver injections. 4+ years experience with safe, natural results. Available nationwide for clinics and on-call services.',
-    siteUrl: 'https://ghadia.qwpcorp.com',
-    keywords: 'professional aesthetician, botox Lahore, dermal fillers Lahore, prp therapy Lahore, laser treatment Lahore, lip fillers, anti aging treatments, botox near me, fillers near me, liquid rhinoplasty, fat dissolver injections, aesthetic treatments Lahore, beauty expert Lahore, skin rejuvenation',
+    siteUrl: 'https://ghadia.vercel.app',
+    keywords:
+      'professional aesthetician Lahore, aesthetician Pakistan, certified aesthetician Lahore, medical aesthetician Lahore, beauty aesthetician Lahore, freelance aesthetician Lahore, on-call aesthetician Pakistan, aesthetic portfolio Lahore, Botox Lahore, Botox injections Lahore, forehead Botox, crow\'s feet treatment, dermal fillers Lahore, lip fillers Lahore, cheek fillers, jawline fillers, PRP therapy Lahore, PRP facial Lahore, vampire facial Lahore, hair PRP Lahore, microneedling Lahore, skin booster Lahore, laser hair removal Lahore, laser skin rejuvenation Lahore, carbon laser facial Lahore, pigmentation treatment Lahore, melasma treatment Lahore, acne scar treatment Lahore, skin tightening Lahore, anti-aging treatments Lahore, non-surgical aesthetics Lahore, injectables Lahore, liquid rhinoplasty Lahore, non-surgical nose job Lahore, fat dissolver Lahore, double chin reduction Lahore, fibroblast plasma Lahore, HydraFacial Lahore, hydrafacial Lahore, skin whitening injection Lahore, aesthetic clinic Lahore, beauty clinic Lahore, cosmetic treatments Lahore, facial aesthetics Lahore, medical aesthetics Pakistan',
   },
 };
 

@@ -1,18 +1,18 @@
+import type { ComponentType } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { LucideIcon } from 'lucide-react';
+import { resolveAsset } from '../utils/resolveAsset';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: LucideIcon;
-  image: string;
+  icon: ComponentType<{ className?: string }>;
+  image: string | { src: string };
   link: string;
 }
 
 export default function ServiceCard({ title, description, image, link }: ServiceCardProps) {
   return (
-    <Link to={link}>
+    <a href={link} className="block h-full">
       <motion.div
         className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-primary-100 h-full group"
         whileHover={{ y: -8, scale: 1.02 }}
@@ -23,7 +23,7 @@ export default function ServiceCard({ title, description, image, link }: Service
       >
         <div className="relative aspect-video overflow-hidden">
           <img
-            src={image}
+            src={resolveAsset(image)}
             alt={title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
@@ -40,6 +40,6 @@ export default function ServiceCard({ title, description, image, link }: Service
           </div>
         </div>
       </motion.div>
-    </Link>
+    </a>
   );
 }

@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
 import { Palette, Play, Sparkles, ArrowRight } from 'lucide-react';
-import SEO from '../components/SEO';
 import { useState, useEffect } from 'react';
+import { resolveAsset } from '../utils/resolveAsset';
 
 import beforeAfer1 from '../assets/beforeAfter/1.jpeg';
 import beforeAfer2 from '../assets/beforeAfter/2.jpeg';
 import beforeAfer3 from '../assets/beforeAfter/3.jpeg';
 import beforeAfer4 from '../assets/beforeAfter/4.jpeg';
 import beforeAfer5 from '../assets/beforeAfter/5.jpeg';
-import beforeAfer6 from '../assets/beforeAfter/6.jpeg';
 import beforeAfer7 from '../assets/beforeAfter/7.jpeg';
 import laserVideo1 from '../assets/videos/laser1.mp4';
 import prpVideo from '../assets/videos/prp1.mp4';
@@ -48,6 +47,25 @@ const marketingGallery = [
   { media: m8, title: 'Before/After Template', type: 'image' },
 ];
 
+const BRAND = 'Ghadia Haider';
+
+/** Rich alt for Google Images — aesthetic before/after stills */
+function aestheticImageAlt(title: string) {
+  return `${title} — before and after aesthetic photo, ${BRAND} aesthetician Lahore Pakistan. Ghadia aesthetic clinic, skin and injectable treatment results.`;
+}
+
+/** Rich alt — marketing portfolio stills */
+function marketingImageAlt(title: string) {
+  return `${title} — ${BRAND} digital marketing & social design for beauty clinics, Lahore Pakistan aesthetic branding.`;
+}
+
+/** Video labels for accessibility + video SEO */
+function aestheticVideoLabel(title: string) {
+  return `${title} — treatment video by ${BRAND}, Ghadia aesthetician Lahore Pakistan | professional aesthetic procedures`;
+}
+
+const MY_WORK_HERO_VIDEO_LABEL = `${BRAND} My Work portfolio — aesthetic transformations background video, PRP and laser treatments Lahore`;
+
 export default function MyWork() {
   const [activeTab, setActiveTab] = useState<'aesthetic' | 'marketing'>('aesthetic');
 
@@ -59,12 +77,6 @@ export default function MyWork() {
 
   return (
     <>
-      <SEO
-        title="My Work & Client Results | Before After Transformations"
-        description="View real before & after photos, treatment results, and client transformations from Botox, fillers, PRP, and other aesthetic procedures by Ghadia Haider."
-        keywords="before after botox, fillers results Lahore, prp before after, aesthetic transformations"
-      />
-
       {/* Hero with Background Video */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <video
@@ -72,9 +84,11 @@ export default function MyWork() {
           loop
           muted
           playsInline
+          title={MY_WORK_HERO_VIDEO_LABEL}
+          aria-label={MY_WORK_HERO_VIDEO_LABEL}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src={prpVideo} type="video/mp4" />
+          <source src={resolveAsset(prpVideo)} type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
@@ -134,9 +148,17 @@ export default function MyWork() {
       <section className="py-20 sm:py-24 bg-gray-50/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {currentGallery.map((item, index) => (
+            {currentGallery.map((item, index) => {
+              const isMarketing = activeTab === 'marketing';
+              const imageAlt = isMarketing
+                ? marketingImageAlt(item.title)
+                : aestheticImageAlt(item.title);
+              const videoLabel =
+                item.type === 'video' ? aestheticVideoLabel(item.title) : '';
+
+              return (
               <motion.div
-                key={index}
+                key={`${activeTab}-${index}-${item.title}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -157,9 +179,11 @@ export default function MyWork() {
                       loop
                       muted
                       playsInline
+                      title={videoLabel}
+                      aria-label={videoLabel}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     >
-                      <source src={item.media} type="video/mp4" />
+                      <source src={resolveAsset(item.media)} type="video/mp4" />
                     </video>
 
                     {/* Play Icon on Hover/Tap */}
@@ -171,9 +195,14 @@ export default function MyWork() {
                   </>
                 ) : (
                   <img
-                    src={item.media}
-                    alt={item.title}
+                    src={resolveAsset(item.media)}
+                    alt={imageAlt}
+                    title={`${item.title} — ${BRAND} | Ghadia aesthetician Lahore`}
+                    width={800}
+                    height={800}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
 
@@ -187,7 +216,8 @@ export default function MyWork() {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
@@ -241,8 +271,10 @@ export default function MyWork() {
                   controls
                   autoPlay
                   muted
+                  title={`Full video: ${aestheticVideoLabel(item.title)}`}
+                  aria-label={aestheticVideoLabel(item.title)}
                   className="w-full aspect-video">
-                  <source src={item.media} type="video/mp4" />
+                  <source src={resolveAsset(item.media)} type="video/mp4" />
                   Your browser does not support video.
                 </video>
               </div>

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AestheticServicesRoute from '../react/routes/AestheticServicesRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'Aesthetic Services in Lahore | Botox, Fillers, PRP & More';
+const description =
+  'Professional aesthetic treatments including Botox injections, dermal fillers, PRP facials, laser therapy, liquid rhinoplasty, and fat dissolver. Safe, natural results by certified aesthetician Ghadia Haider in Lahore.';
+const keywords = `aesthetic services Lahore, non-surgical beauty Lahore, injectables Lahore, skin clinic Lahore, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <AestheticServicesRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

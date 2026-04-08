@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
 import { TrendingUp, Palette, Video, Target, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
-import SEO from '../components/SEO';
-import { siteConfig } from '../config/siteConfig';
-import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function DigitalMarketing() {
-  const navigate = useNavigate();
 
   const services = [
     {
@@ -61,12 +57,6 @@ export default function DigitalMarketing() {
   }, [])
   return (
     <>
-      <SEO
-        title="Digital Marketing Services"
-        description="Professional digital marketing services for beauty and aesthetic clinics. Meta Ads, social media design, video editing, and content strategy to grow your practice."
-        keywords="digital marketing, beauty marketing, aesthetic clinic marketing, Meta Ads, Instagram marketing, social media design"
-      />
-
       <section className="pt-32 pb-20 gradient-bg">
         <div className="container mx-auto px-4">
           <motion.div
@@ -208,10 +198,10 @@ export default function DigitalMarketing() {
               Let's discuss how digital marketing can help you attract more clients and build your brand
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button onClick={() => navigate('/contact')} size="lg">
+              <Button onClick={() => (window.location.href = '/contact')} size="lg">
                 Get Started
               </Button>
-              <Button onClick={() => navigate('/my-work')} variant="outline" size="lg">
+              <Button onClick={() => (window.location.href = '/my-work')} variant="outline" size="lg">
                 View My Work
               </Button>
             </div>

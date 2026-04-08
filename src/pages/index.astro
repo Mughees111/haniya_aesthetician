@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeRoute from '../react/routes/HomeRoute';
+import { siteConfig } from '../config/siteConfig';
+import { getHomeSchemaJson } from '../seo/homeSchema';
+import { resolveAsset } from '../utils/resolveAsset';
+
+const title =
+  'Ghadia Haider - Professional Aesthetician in Lahore | Botox, Fillers & PRP';
+const description =
+  'Certified aesthetician in Lahore offering Botox, dermal fillers, PRP therapy, laser treatments, and advanced anti-aging procedures. 4+ years experience with safe, natural results. Book your consultation today.';
+const keywords = `${siteConfig.seo.keywords}, Ghadia Haider portfolio, best aesthetician Lahore DHA Gulberg`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={resolveAsset(siteConfig.personal.image)}
+  schemaJson={getHomeSchemaJson()}
+>
+  <HomeRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
@@ -22,20 +21,20 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-600 hover:text-primary-600 transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-gray-600 hover:text-primary-600 transition-colors">About Me</Link></li>
-              <li><Link to="/aesthetic-services" className="text-gray-600 hover:text-primary-600 transition-colors">Services</Link></li>
-              <li><Link to="/my-work" className="text-gray-600 hover:text-primary-600 transition-colors">My Work</Link></li>
+              <li><a href="/" className="text-gray-600 hover:text-primary-600 transition-colors">Home</a></li>
+              <li><a href="/about" className="text-gray-600 hover:text-primary-600 transition-colors">About Me</a></li>
+              <li><a href="/aesthetic-services" className="text-gray-600 hover:text-primary-600 transition-colors">Services</a></li>
+              <li><a href="/my-work" className="text-gray-600 hover:text-primary-600 transition-colors">My Work</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services/botox" className="text-gray-600 hover:text-primary-600 transition-colors">Botox</Link></li>
-              <li><Link to="/services/dermal-fillers" className="text-gray-600 hover:text-primary-600 transition-colors">Dermal Fillers</Link></li>
-              <li><Link to="/services/prp-therapy" className="text-gray-600 hover:text-primary-600 transition-colors">PRP Therapy</Link></li>
-              <li><Link to="/services/laser-treatments" className="text-gray-600 hover:text-primary-600 transition-colors">Laser Treatments</Link></li>
+              <li><a href="/services/botox" className="text-gray-600 hover:text-primary-600 transition-colors">Botox</a></li>
+              <li><a href="/services/dermal-fillers" className="text-gray-600 hover:text-primary-600 transition-colors">Dermal Fillers</a></li>
+              <li><a href="/services/prp-therapy" className="text-gray-600 hover:text-primary-600 transition-colors">PRP Therapy</a></li>
+              <li><a href="/services/laser-treatments" className="text-gray-600 hover:text-primary-600 transition-colors">Laser Treatments</a></li>
             </ul>
           </div>
 

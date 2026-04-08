@@ -1,16 +1,13 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowLeft, Phone } from 'lucide-react';
-import SEO from '../components/SEO';
 import Button from '../components/Button';
 import ServiceCard from '../components/ServiceCard';
 import { getServiceBySlug, services } from '../data/services';
 import { siteConfig } from '../config/siteConfig';
 import { useEffect } from 'react';
+import { resolveAsset } from '../utils/resolveAsset';
 
-export default function ServiceDetail() {
-  const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+export default function ServiceDetail({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug || '');
 
   useEffect(() => {
@@ -22,7 +19,7 @@ export default function ServiceDetail() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-background">
         <div className="text-center p-8 bg-white rounded-3xl shadow-2xl">
           <h1 className="text-4xl font-bold mb-4 text-primary-800">Service Not Found</h1>
-          <Button onClick={() => navigate('/aesthetic-services')} size="lg" variant="gradient">
+          <Button onClick={() => (window.location.href = '/aesthetic-services')} size="lg" variant="gradient">
             View All Services
           </Button>
         </div>
@@ -36,82 +33,18 @@ export default function ServiceDetail() {
 
   const Icon = service.icon;
 
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalProcedure',
-    name: `${service.title} in Lahore`,
-    description: `${service.seo.description} Available in Lahore by certified aesthetician Ghadia Haider.`,
-    procedureType: 'Aesthetic Treatment',
-    areaServed: {
-      '@type': 'City',
-      name: 'Lahore',
-      addressCountry: 'Pakistan'
-    },
-    provider: {
-      '@type': 'Person',
-      name: siteConfig.personal.name,
-      telephone: siteConfig.personal.phone,
-      email: siteConfig.personal.email,
-      url: siteConfig.seo.siteUrl
-    },
-    priceRange: '$$',
-    image: service.image
-  };
-
   return (
     <>
-      <SEO
-        title={`${service.seo.title} in Lahore | Ghadia Haider Aesthetician`}
-        description={`${service.seo.description} Safe, professional service in Lahore with natural results.`}
-        keywords={service.seo.keywords}
-        image={service.image}
-        url={`${siteConfig.seo.siteUrl}/services/${slug}`}
-        schema={{
-          ...serviceSchema,
-          // Add FAQ Schema if exists
-          ...(service.faqs && {
-            '@graph': [
-              serviceSchema,
-              {
-                '@type': 'FAQPage',
-                '@id': `${siteConfig.seo.siteUrl}/services/${slug}#faq`,
-                mainEntity: service.faqs.map(faq => ({
-                  '@type': 'Question',
-                  name: faq.question,
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: faq.answer
-                  }
-                }))
-              },
-
-            ]
-          }),
-          ...(service.howToSteps && {
-            '@type': 'HowTo',
-            name: `How ${service.title} is Performed in Lahore`,
-            description: `Step-by-step guide to professional ${service.title.toLowerCase()} treatment.`,
-            step: service.howToSteps.map((step, index) => ({
-              '@type': 'HowToStep',
-              name: `Step ${index + 1}`,
-              text: step
-            }))
-          })
-        }}
-      />
-
-
-
       <section className="pt-32 pb-12 bg-gradient-to-br from-primary-50 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,theme(colors.primary.100/20)_0%,transparent_80%)]" />
         <div className="container mx-auto px-4 relative z-10">
-          <Link
-            to="/aesthetic-services"
+          <a
+            href="/aesthetic-services"
             className="inline-flex items-center text-primary-700 hover:text-primary-900 mb-8 transition-colors font-medium text-lg"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to All Services
-          </Link>
+          </a>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -144,7 +77,7 @@ export default function ServiceDetail() {
                     <Phone className="w-5 h-5 mr-2" />
                     Book Consultation
                   </Button>
-                  <Button onClick={() => navigate('/contact')} variant="outline" size="lg">
+                  <Button onClick={() => (window.location.href = '/contact')} variant="outline" size="lg">
                     Contact for Details
                   </Button>
                 </div>
@@ -159,7 +92,7 @@ export default function ServiceDetail() {
               <div className="bg-white rounded-3xl p-8 shadow-2xl border border-primary-50">
                 <div className="aspect-[16/9] rounded-2xl mb-8 overflow-hidden relative shadow-lg">
                   <img
-                    src={service.image}
+                    src={resolveAsset(service.image)}
                     alt={`${service.title} treatment example in Lahore by Ghadia Haider`}
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                     loading="lazy"

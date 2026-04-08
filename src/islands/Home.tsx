@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Sparkles, Phone } from 'lucide-react';
 import Button from '../components/Button';
 import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
-import SEO from '../components/SEO';
 import { siteConfig } from '../config/siteConfig';
+import { resolveAsset } from '../utils/resolveAsset';
 import { services } from '../data/services';
 import { testimonials } from '../data/testimonials';
 
@@ -13,60 +12,24 @@ import laserVideo1 from '../assets/videos/laser1.mp4';
 import prpVideo from '../assets/videos/prp1.mp4';
 import facePRP from '../assets/videos/facePRP.mp4';
 
-
-const homeSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: siteConfig.personal.name,
-  jobTitle: 'Professional Aesthetician',
-  description: siteConfig.personal.description,
-  image: siteConfig.personal.image,
-  url: siteConfig.seo.siteUrl,
-  telephone: siteConfig.personal.phone,
-  email: siteConfig.personal.email,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Lahore',
-    addressRegion: 'Punjab',
-    addressCountry: 'PK'
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Lahore'
-  },
-  knowsAbout: ['Botox', 'Dermal Fillers', 'PRP Therapy', 'Laser Treatments', 'Aesthetic Medicine', 'Anti-Aging'],
-  priceRange: '$$',
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Aesthetic Services',
-    itemListElement: services.map(service => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: service.title
-      }
-    }))
-  }
-};
-
-
+/** SEO: profile + media labels for Google Images & video discovery */
+const PROFILE_IMG_ALT =
+  'Ghadia Haider — professional aesthetician portrait in Lahore, Pakistan. Ghadia aesthetician: Botox, dermal fillers, PRP therapy, laser and skin treatments.';
+const PROFILE_IMG_TITLE =
+  'Ghadia Haider | Ghadia Aesthetician Lahore — certified professional aesthetician portfolio photo';
+const HERO_BG_VIDEO_LABEL =
+  'Ghadia Haider aesthetic clinic Lahore — background PRP facial rejuvenation treatment atmosphere video';
+const LASER_THERAPY_VIDEO_LABEL =
+  'Laser therapy treatment video — Ghadia Haider advanced laser skin rejuvenation in Lahore, Pakistan | aesthetic laser results';
+const PRP_HOME_VIDEO_LABEL =
+  'PRP facial rejuvenation treatment video — Ghadia Haider aesthetician Lahore, Pakistan | platelet-rich plasma skin therapy';
 
 export default function Home() {
-  const navigate = useNavigate();
   const featuredServices = services.slice(0, 6);
   const featuredTestimonials = testimonials.slice(0, 3);
 
   return (
     <>
-      <SEO
-        title="Ghadia Haider - Professional Aesthetician in Lahore | Botox, Fillers & PRP"
-        description="Certified aesthetician in Lahore offering Botox, dermal fillers, PRP therapy, laser treatments, and advanced anti-aging procedures. 4+ years experience with safe, natural results. Book your consultation today."
-        keywords="aesthetician lahore, botox lahore, dermal fillers lahore, prp therapy lahore, laser treatment lahore, lip fillers lahore, anti aging lahore, beauty clinic lahore, skin rejuvenation lahore"
-        image={siteConfig.personal.image}
-        url={siteConfig.seo.siteUrl}
-        schema={homeSchema}
-      />
-
       {/* Hero Section - Fully Mobile Responsive */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Video */}
@@ -75,9 +38,11 @@ export default function Home() {
           loop
           muted
           playsInline
+          title={HERO_BG_VIDEO_LABEL}
+          aria-label={HERO_BG_VIDEO_LABEL}
           className="absolute inset-0 w-full h-full object-cover -z-10 opacity-30"
         >
-          <source src={facePRP} type="video/mp4" />
+          <source src={resolveAsset(facePRP)} type="video/mp4" />
         </video>
 
         {/* Soft Overlays */}
@@ -138,7 +103,7 @@ export default function Home() {
                   <Phone className="w-5 h-5 mr-2" />
                   Book via WhatsApp
                 </Button>
-                <Button onClick={() => navigate('/aesthetic-services')} size="lg">
+                <Button onClick={() => (window.location.href = '/aesthetic-services')} size="lg">
                   Explore Services
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -179,10 +144,12 @@ export default function Home() {
             >
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white/80">
                 <img
-                  src={siteConfig.personal.image}
-                  alt="Ghadia Haider - Professional Aesthetician"
+                  src={resolveAsset(siteConfig.personal.image)}
+                  alt={PROFILE_IMG_ALT}
+                  title={PROFILE_IMG_TITLE}
                   className="w-full h-full object-cover"
                   loading="eager"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent" />
               </div>
@@ -247,7 +214,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button onClick={() => navigate('/aesthetic-services')} variant="outline" size="lg">
+            <Button onClick={() => (window.location.href = '/aesthetic-services')} variant="outline" size="lg">
               Discover All Treatments
             </Button>
           </div>
@@ -278,10 +245,18 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
-              onClick={() => document.getElementById('laser-modal')?.showModal()}
+              onClick={() => (document.getElementById('laser-modal') as HTMLDialogElement | null)?.showModal()}
             >
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <source src={laserVideo1} type="video/mp4" />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                title={LASER_THERAPY_VIDEO_LABEL}
+                aria-label={LASER_THERAPY_VIDEO_LABEL}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              >
+                <source src={resolveAsset(laserVideo1)} type="video/mp4" />
               </video>
               {/* Hover overlay same as before */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 sm:p-8">
@@ -303,10 +278,18 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
-              onClick={() => document.getElementById('prp-modal')?.showModal()}
+              onClick={() => (document.getElementById('prp-modal') as HTMLDialogElement | null)?.showModal()}
             >
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <source src={prpVideo} type="video/mp4" />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                title={PRP_HOME_VIDEO_LABEL}
+                aria-label={PRP_HOME_VIDEO_LABEL}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              >
+                <source src={resolveAsset(prpVideo)} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 sm:p-8">
                 <h3 className="text-2xl font-semibold text-white">PRP Facial Rejuvenation</h3>
@@ -323,7 +306,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button onClick={() => navigate('/my-work')} size="lg">
+            <Button onClick={() => (window.location.href = '/my-work')} size="lg">
               View Full Gallery & Results
             </Button>
           </div>
@@ -335,8 +318,14 @@ export default function Home() {
             <button className="btn btn-circle btn-ghost text-white absolute top-4 right-4 z-10" onClick={(e) => e.currentTarget.closest('dialog')?.close()}>
               ✕
             </button>
-            <video controls autoPlay className="w-full aspect-video">
-              <source src={laserVideo1} type="video/mp4" />
+            <video
+              controls
+              autoPlay
+              title={`Full length: ${LASER_THERAPY_VIDEO_LABEL}`}
+              aria-label={LASER_THERAPY_VIDEO_LABEL}
+              className="w-full aspect-video"
+            >
+              <source src={resolveAsset(laserVideo1)} type="video/mp4" />
             </video>
           </div>
         </dialog>
@@ -346,15 +335,85 @@ export default function Home() {
             <button className="btn btn-circle btn-ghost text-white absolute top-4 right-4 z-10" onClick={(e) => e.currentTarget.closest('dialog')?.close()}>
               ✕
             </button>
-            <video controls autoPlay className="w-full aspect-video">
-              <source src={prpVideo} type="video/mp4" />
+            <video
+              controls
+              autoPlay
+              title={`Full length: ${PRP_HOME_VIDEO_LABEL}`}
+              aria-label={PRP_HOME_VIDEO_LABEL}
+              className="w-full aspect-video"
+            >
+              <source src={resolveAsset(prpVideo)} type="video/mp4" />
             </video>
           </div>
         </dialog>
       </section>
 
-      {/* Testimonials & CTA - Minor responsive tweaks already good */}
-      {/* ... rest of your sections remain similar with small padding adjustments if needed ... */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              What <span className="gradient-text">Clients Say</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Real experiences from people who trusted me with their aesthetic journey in Lahore
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+            {featuredTestimonials.map((t) => (
+              <TestimonialCard key={t.id} {...t} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button onClick={() => (window.location.href = '/reviews')} variant="outline" size="lg">
+              Read All Reviews
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24 gradient-bg relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Your Journey to <span className="gradient-text">Radiant Beauty</span> Starts Here
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-10 leading-relaxed">
+              Book a personalized consultation for Botox, fillers, PRP, laser treatments, and more — tailored to your goals with safe, natural-looking results.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${siteConfig.personal.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'd like to book a consultation in Lahore`,
+                    '_blank'
+                  )
+                }
+                size="lg"
+                variant="gradient"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Book Consultation
+              </Button>
+              <Button onClick={() => (window.location.href = '/contact')} variant="outline" size="lg">
+                Contact Me
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 }

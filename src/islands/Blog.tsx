@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User } from 'lucide-react';
-import SEO from '../components/SEO';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
+import { siteConfig } from '../config/siteConfig';
 
 const blogPosts = [
   {
@@ -128,22 +127,8 @@ const blogPosts = [
 ];
 
 export default function Blog() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    name: 'Ghadia Haider Aesthetics Blog',
-    description: 'Expert insights on Botox, fillers, PRP, laser treatments, and non-surgical aesthetics in Lahore.'
-  };
-
   return (
     <>
-      <SEO
-        title="Aesthetics Blog | Tips & Guides by Ghadia Haider in Lahore"
-        description="Latest insights on Botox, dermal fillers, PRP therapy, laser treatments, and non-surgical beauty trends in Lahore from certified aesthetician Ghadia Haider."
-        keywords="aesthetics blog lahore, botox tips lahore, fillers guide, prp therapy lahore, non surgical beauty"
-        schema={schema}
-      />
-
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-background">
         <div className="container mx-auto px-4 text-center">
           <motion.h1
@@ -171,7 +156,7 @@ export default function Blog() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-gradient-to-br from-primary-50/50 to-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
               >
-                <Link to={`/blogs/${post.slug}`}>
+                <a href={`/blogs/${post.slug}`} className="block">
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={post.image}
@@ -203,13 +188,21 @@ export default function Blog() {
                       Read More →
                     </span>
                   </div>
-                </Link>
+                </a>
               </motion.article>
             ))}
           </div>
 
           <div className="text-center mt-16">
-            <Button size="lg" onClick={() => window.open(`https://wa.me/${siteConfig.personal.whatsapp}`, '_blank')}>
+            <Button
+              size="lg"
+              onClick={() =>
+                window.open(
+                  `https://wa.me/${siteConfig.personal.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'd love personalized aesthetic advice`,
+                  '_blank'
+                )
+              }
+            >
               Book a Consultation for Personalized Advice
             </Button>
           </div>

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'outline' | 'gradient';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   onClick?: () => void;
   href?: string;
   className?: string;
@@ -22,6 +22,7 @@ export default function Button({
 
   const variantClasses = {
     primary: 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:shadow-lg hover:shadow-primary-300/50 hover:scale-105',
+    gradient: 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:shadow-lg hover:shadow-primary-300/50 hover:scale-105',
     secondary: 'bg-white text-primary-600 hover:bg-primary-50 border-2 border-primary-200',
     outline: 'bg-transparent text-primary-600 border-2 border-primary-500 hover:bg-primary-500 hover:text-white',
   };
@@ -30,6 +31,7 @@ export default function Button({
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
     lg: 'px-8 py-4 text-lg',
+    xl: 'px-10 py-5 text-xl',
   };
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;

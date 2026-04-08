@@ -34,7 +34,7 @@ export interface Service {
   fullDescription: string;
   benefits: string[];
   icon: any;
-  image: string;
+  image: string | { src: string };
   howToSteps?: string[];
   faqs?: { question: string; answer: string }[];
   seo: {

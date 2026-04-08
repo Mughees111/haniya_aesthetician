@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Award, Heart, Shield, Sparkles, TrendingUp, Users } from 'lucide-react';
-import SEO from '../components/SEO';
 import { siteConfig } from '../config/siteConfig';
+import { resolveAsset } from '../utils/resolveAsset';
 
 export default function About() {
   const values = [
@@ -40,12 +40,6 @@ export default function About() {
 
   return (
     <>
-      <SEO
-        title="About Ghadia Haider - Certified Aesthetician in Lahore"
-        description={`Learn about Ghadia Haider, a certified professional aesthetician with ${siteConfig.personal.experience} experience in Botox, dermal fillers, PRP, laser treatments, and advanced aesthetics across Lahore.`}
-        keywords="about aesthetician, ghadi haider aesthetician, beauty expert Lahore, certified aesthetician Lahore"
-      />
-
       <section className="pt-32 pb-20 gradient-bg">
         <div className="container mx-auto px-4">
           <motion.div
@@ -70,7 +64,7 @@ export default function About() {
             >
               <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={siteConfig.personal.image}
+                  src={resolveAsset(siteConfig.personal.image)}
                   alt={siteConfig.personal.name}
                   className="w-full h-full object-cover"
                 />

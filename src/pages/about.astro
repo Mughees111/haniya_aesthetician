@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutRoute from '../react/routes/AboutRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'About Ghadia Haider - Certified Aesthetician in Lahore';
+const description = `Learn about Ghadia Haider, a certified professional aesthetician with ${siteConfig.personal.experience} experience in Botox, dermal fillers, PRP, laser treatments, and advanced aesthetics across Lahore.`;
+const keywords = `about aesthetician Lahore, Ghadia Haider aesthetician, certified beauty expert Lahore Pakistan, professional injector Lahore, aesthetic career Lahore, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <AboutRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

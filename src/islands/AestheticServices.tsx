@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Heart, Clock, Shield } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
-import SEO from '../components/SEO';
 import { services } from '../data/services';
 import { useEffect } from 'react';
 
@@ -12,12 +11,6 @@ export default function AestheticServices() {
 
   return (
     <>
-      <SEO
-        title="Aesthetic Services in Lahore | Botox, Fillers, PRP & More"
-        description="Professional aesthetic treatments including Botox injections, dermal fillers, PRP facials, laser therapy, liquid rhinoplasty, and fat dissolver. Safe, natural results by certified aesthetician."
-        keywords="aesthetic services Lahore, botox treatment, dermal fillers, prp therapy, laser hair removal, skin rejuvenation Lahore, anti-aging injections"
-      />
-
       {/* Elegant Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         {/* Dreamy Gradient Background */}

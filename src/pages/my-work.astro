@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MyWorkRoute from '../react/routes/MyWorkRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'My Work & Client Results | Before After Transformations';
+const description =
+  'View real before and after photos, treatment videos, and client transformations from Botox, fillers, PRP, laser, and other aesthetic procedures by Ghadia Haider in Lahore.';
+const keywords = `before after Botox Lahore, filler results Lahore, PRP before after Pakistan, aesthetic portfolio Lahore, treatment videos aesthetician, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <MyWorkRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>

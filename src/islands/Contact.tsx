@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle, Instagram, Facebook, Linkedin, MapPin, Clock, Sparkles, ArrowRight } from 'lucide-react';
-import SEO from '../components/SEO';
 import { siteConfig } from '../config/siteConfig';
 import { useEffect } from 'react';
 
@@ -56,12 +55,6 @@ export default function Contact() {
 
   return (
     <>
-      <SEO
-        title="Contact Ghadia Haider | Book Aesthetic Consultation in Lahore"
-        description={`Contact professional aesthetician Ghadia Haider for Botox, fillers, PRP consultations, clinic collaborations, or on-call aesthetic services anywhere in Lahore. WhatsApp: ${siteConfig.personal.whatsapp}`}
-        keywords="contact aesthetician, book botox Lahore, aesthetic consultation, clinic collaboration Lahore"
-      />
-
       {/* Hero Section - More Elegant & Highlighted Message */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-rose-50 to-white opacity-90" />

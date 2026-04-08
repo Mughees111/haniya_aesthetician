@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewsRoute from '../react/routes/ReviewsRoute';
+import { siteConfig } from '../config/siteConfig';
+
+const title = 'Client Reviews | Ghadia Haider Aesthetician Lahore';
+const description =
+  'Read verified-style client reviews for Botox, fillers, PRP, laser, and aesthetic treatments with Ghadia Haider in Lahore — safety, results, and care.';
+const keywords = `aesthetician reviews Lahore, Botox testimonials Pakistan, filler reviews Lahore, best aesthetician reviews, ${siteConfig.seo.keywords}`;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <ReviewsRoute client:load currentPath={Astro.url.pathname} />
+</BaseLayout>
