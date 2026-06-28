@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Sparkles, Phone } from 'lucide-react';
+import { ArrowRight, Star, Sparkles, Phone, Home as HomeIcon } from 'lucide-react';
 import Button from '../components/Button';
 import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
@@ -7,6 +7,9 @@ import { siteConfig } from '../config/siteConfig';
 import { resolveAsset } from '../utils/resolveAsset';
 import { services } from '../data/services';
 import { testimonials } from '../data/testimonials';
+import { homeFaqs, lahoreServiceAreas } from '../data/faqContent';
+import FaqAccordion from '../components/FaqAccordion';
+import OnCallHighlightSection from '../components/OnCallHighlightSection';
 
 import laserVideo1 from '../assets/videos/laser1.mp4';
 import prpVideo from '../assets/videos/prp1.mp4';
@@ -62,10 +65,16 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2.5 rounded-full text-primary-700 font-medium text-sm mb-6 shadow-md"
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6"
               >
-                <Sparkles className="w-4 h-4" />
-                {siteConfig.personal.experience} Years of Excellence
+                <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2.5 rounded-full text-primary-700 font-medium text-sm shadow-md">
+                  <Sparkles className="w-4 h-4" />
+                  {siteConfig.personal.experience} Years of Excellence
+                </div>
+                <div className="inline-flex items-center gap-2 bg-primary-700/90 backdrop-blur-sm px-4 py-2.5 rounded-full text-white font-medium text-sm shadow-md glow-button">
+                  <HomeIcon className="w-4 h-4" />
+                  On-Call Home Visits Available
+                </div>
               </motion.div>
 
               <motion.h1
@@ -74,9 +83,9 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 1 }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
               >
-                <span className="block gradient-text">Glow Naturally</span>
+                <span className="block gradient-text">Refined Aesthetic Care</span>
                 <span className="block text-gray-800 mt-3 text-3xl sm:text-4xl md:text-5xl">
-                  {siteConfig.personal.tagline}
+                  in Lahore — Botox, Fillers, PRP & Laser
                 </span>
               </motion.h1>
 
@@ -147,7 +156,7 @@ export default function Home() {
                   src={resolveAsset(siteConfig.personal.image)}
                   alt={PROFILE_IMG_ALT}
                   title={PROFILE_IMG_TITLE}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full profile-photo"
                   loading="eager"
                   decoding="async"
                 />
@@ -188,8 +197,8 @@ export default function Home() {
               Signature Aesthetic Treatments in <span className="gradient-text">Lahore</span>
               {/* My <span className="gradient-text">Signature Treatments</span> */}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Premium, personalized services including Botox, fillers, PRP, laser therapy, and more – all performed with precision and care
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              From subtle anti-aging injectables to advanced laser and skin rejuvenation — every plan is built around your face, not a template. Serving clients across DHA, Gulberg, Johar Town, and wider Lahore through private sessions and clinic collaborations.
             </p>
           </motion.div>
 
@@ -217,6 +226,72 @@ export default function Home() {
             <Button onClick={() => (window.location.href = '/aesthetic-services')} variant="outline" size="lg">
               Discover All Treatments
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <OnCallHighlightSection />
+
+      {/* Approach — substantive SEO content */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">
+                How I <span className="gradient-text">Work</span>
+              </h2>
+              <div className="space-y-5 text-gray-700 leading-relaxed text-lg">
+                <p>
+                  Good aesthetic work is invisible — people notice that you look rested, balanced, and confident, not that you had a procedure. That is the standard I hold for every Botox session, filler placement, PRP treatment, and laser plan in Lahore.
+                </p>
+                <p>
+                  I begin with a proper consultation: muscle movement for Botox, volume loss and bone structure for fillers, skin depth and pigmentation for laser, and realistic timelines for PRP and hair restoration. You receive honest guidance on what will help, what will not, and how to maintain results safely.
+                </p>
+                <p>
+                  Whether you are booking for yourself or hiring an aesthetician for your clinic, you get the same attention to sterile technique, product quality, and aftercare communication.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {[
+                {
+                  step: '01',
+                  title: 'Consultation & facial assessment',
+                  text: 'We discuss your goals, medical history, and previous treatments. I map the areas that will deliver the most natural improvement.',
+                },
+                {
+                  step: '02',
+                  title: 'Custom treatment plan',
+                  text: 'Single-session or combined protocols — Botox with skin tightening, fillers with PRP, laser courses for pigmentation — tailored to your budget and downtime.',
+                },
+                {
+                  step: '03',
+                  title: 'Treatment & aftercare',
+                  text: 'Procedures are performed with medical-grade hygiene. You leave with clear do\'s and don\'ts, plus WhatsApp support for follow-up questions.',
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="flex gap-5 bg-gradient-to-br from-primary-50 to-rose-50 rounded-2xl p-6 shadow-md"
+                >
+                  <div className="text-3xl font-bold gradient-text shrink-0">{item.step}</div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -348,6 +423,58 @@ export default function Home() {
         </dialog>
       </section>
 
+      <section className="py-20 sm:py-24 bg-gray-50/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Aesthetician in <span className="gradient-text">Lahore</span> — Private & Clinic Clients
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              I support individuals seeking anti-aging and skin rejuvenation, and clinics that need a reliable on-call aesthetician for injectables and advanced treatments. Popular requests include forehead Botox, lip and cheek fillers, PRP for hair and face, laser for pigmentation, liquid rhinoplasty, and bridal skin prep before weddings and events.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Areas I regularly serve</h3>
+              <div className="flex flex-wrap gap-2">
+                {lahoreServiceAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="px-4 py-2 bg-primary-50 text-primary-800 rounded-full text-sm font-medium"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Treatments clients search for most</h3>
+              <ul className="space-y-2 text-gray-700">
+                {[
+                  'Botox for forehead lines, frown lines & crow\'s feet',
+                  'Lip fillers, cheek augmentation & jawline contouring',
+                  'PRP facial rejuvenation & hair PRP for thinning hair',
+                  'Laser skin rejuvenation, melasma & acne scar care',
+                  'Liquid rhinoplasty & non-surgical nose reshaping',
+                  'HydraFacial, skin tightening & glutathione brightening',
+                ].map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <span className="text-primary-600 mt-1">•</span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -375,6 +502,25 @@ export default function Home() {
               Read All Reviews
             </Button>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24 bg-gray-50/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Frequently Asked <span className="gradient-text">Questions</span>
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about aesthetic treatments, booking, and availability in Lahore
+            </p>
+          </motion.div>
+          <FaqAccordion items={homeFaqs} idPrefix="home-faq" />
         </div>
       </section>
 

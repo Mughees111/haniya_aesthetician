@@ -3,6 +3,7 @@ import { Sparkles, Heart, Clock, Shield } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
 import { services } from '../data/services';
 import { useEffect } from 'react';
+import { siteConfig } from '../config/siteConfig';
 
 export default function AestheticServices() {
   useEffect(() => {
@@ -58,8 +59,7 @@ export default function AestheticServices() {
               transition={{ delay: 0.8 }}
               className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12"
             >
-              Advanced aesthetic treatments performed with precision, artistry, and a deep understanding of facial harmony.
-              Every procedure is tailored to enhance your unique beauty — safely and naturally.
+              Complete non-surgical aesthetic services in Lahore — Botox, dermal fillers, PRP, laser rejuvenation, liquid rhinoplasty, skin tightening, and more. Each treatment is planned around your facial structure, skin type, and downtime preferences.
             </motion.p>
 
             {/* Trust Highlights */}
@@ -130,6 +130,30 @@ export default function AestheticServices() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="prose prose-lg max-w-none text-gray-700"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              Why choose a dedicated aesthetician in Lahore?
+            </h2>
+            <p className="leading-relaxed mb-4">
+              Searching for Botox near me, lip fillers in DHA, or PRP therapy in Gulberg often leads to generic clinic listings with no face behind the work. Here, every service page documents what the treatment does, who it suits, expected downtime, and how I approach facial balance — so you can make an informed decision before booking.
+            </p>
+            <p className="leading-relaxed mb-4">
+              Whether you need anti-aging injectables, laser for pigmentation and acne scars, hair PRP for thinning, or a full skin rejuvenation plan before a wedding or event, treatments are delivered with medical-grade hygiene and honest consultation — never pressure to do more than you need.
+            </p>
+            <p className="leading-relaxed">
+              Clinics looking for on-call injectable and laser support can also reach out for scheduled collaborations across Lahore and nationwide.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-100/60 via-rose-100/60 to-white" />
@@ -156,7 +180,7 @@ export default function AestheticServices() {
             </p>
 
             <motion.a
-              href="https://wa.me/93221401833?text=Hi! I'd love to book a consultation and learn more about your aesthetic treatments"
+              href={`https://wa.me/${siteConfig.personal.whatsapp.replace(/[^0-9]/g, '')}?text=Hi! I'd like to book a consultation for aesthetic treatments in Lahore`}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.08 }}

@@ -22,4 +22,67 @@
   .gradient-bg {
     @apply bg-gradient-to-br from-primary-50 via-secondary-50 to-primary-100;
   }
+
+  .glow-button {
+    animation: glow-pulse 2.5s ease-in-out infinite;
+  }
+
+  .shadow-glow-soft {
+    box-shadow: 0 0 24px rgba(178, 139, 214, 0.45);
+  }
+
+  /* Portrait profile — keep head visible in square/circle crops */
+  .profile-photo {
+    @apply object-cover object-top;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(214, 180, 232, 0.5),
+      0 0 40px rgba(124, 76, 203, 0.35),
+      0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 32px rgba(255, 180, 220, 0.65),
+      0 0 56px rgba(124, 76, 203, 0.55),
+      0 4px 28px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(24px, -16px) scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@keyframes glow-drift-reverse {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-20px, 12px) scale(1.06);
+    opacity: 0.75;
+  }
+}
+
+@layer utilities {
+  .animate-glow-drift {
+    animation: glow-drift 8s ease-in-out infinite;
+  }
+
+  .animate-glow-drift-reverse {
+    animation: glow-drift-reverse 10s ease-in-out infinite;
+  }
 }

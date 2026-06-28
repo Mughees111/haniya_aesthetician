@@ -41,8 +41,8 @@ export default function Contact() {
   ];
 
   const servicesOffered = [
+    'On-Call & At-Home Aesthetic Sessions',
     'Clinic Collaborations & Partnerships',
-    'On-Call Aesthetic Services',
     'Personalized Client Consultations',
     'Advanced Facial & Body Treatments',
     'Digital Marketing for Beauty Brands',

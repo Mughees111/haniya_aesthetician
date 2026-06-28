@@ -1,9 +1,10 @@
 import { siteConfig } from '../config/siteConfig';
 import { services } from '../data/services';
+import { homeFaqs } from '../data/faqContent';
 import { resolveAsset } from '../utils/resolveAsset';
 
 export function getHomeSchemaJson(): string {
-  const homeSchema = {
+  const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: siteConfig.personal.name,
@@ -19,30 +20,38 @@ export function getHomeSchemaJson(): string {
       addressRegion: 'Punjab',
       addressCountry: 'PK',
     },
-    areaServed: {
+    areaServed: siteConfig.business.schema.areaServed.map((name) => ({
       '@type': 'City',
-      name: 'Lahore',
-    },
-    knowsAbout: [
-      'Botox',
-      'Dermal Fillers',
-      'PRP Therapy',
-      'Laser Treatments',
-      'Aesthetic Medicine',
-      'Anti-Aging',
-    ],
+      name,
+    })),
+    knowsAbout: siteConfig.business.schema.knowsAbout,
     priceRange: '$$',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Aesthetic Services',
+      name: 'Aesthetic Services in Lahore',
       itemListElement: services.map((service) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: service.title,
+          url: `${siteConfig.seo.siteUrl}/services/${service.slug}`,
         },
       })),
     },
   };
-  return JSON.stringify(homeSchema);
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return JSON.stringify([personSchema, faqSchema]);
 }

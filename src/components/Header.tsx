@@ -29,9 +29,7 @@ export default function Header({ currentPath }: { currentPath: string }) {
               <img
                 src={resolveAsset(siteConfig.personal.image)}
                 alt={siteConfig.personal.name}
-                className="w-full h-full object-cover"
-                style={{borderRadius:20}}
-                // style={{ opacity: 0.3 }}
+                className="w-full h-full profile-photo rounded-full"
               />
               {/* <span className="text-white font-bold text-xl">GH</span> */}
             </div>

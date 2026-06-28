@@ -1,12 +1,12 @@
 /**
  * Runs after `astro build`. Writes dist/sitemap.xml for static hosting.
- * When adding routes, update STATIC_PATHS, BLOG_SLUGS, or SERVICE_SLUGS below.
  */
-import { writeFileSync, existsSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const SITE = 'https://ghadia.vercel.app';
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const STATIC_PATHS = [
   '/',
@@ -19,28 +19,13 @@ const STATIC_PATHS = [
   '/blogs',
 ];
 
-const BLOG_SLUGS = [
-  'botox-aftercare-tips-for-best-results',
-  'botox-vs-dermal-fillers-2025-guide',
-  'prp-therapy-benefits-skin-hair',
-  'liquid-rhinoplasty-guide-2025',
-  'laser-treatments-trends-2025',
-];
+function readSlugs(filePath, pattern) {
+  const source = readFileSync(join(ROOT, filePath), 'utf8');
+  return [...source.matchAll(pattern)].map((match) => match[1]);
+}
 
-const SERVICE_SLUGS = [
-  'botox',
-  'dermal-fillers',
-  'liquid-rhinoplasty',
-  'laser-treatments',
-  'prp-therapy',
-  'fat-dissolver',
-  'skin-tightening',
-  'fibroplasty',
-  'whitening-injections',
-  'hydia-facial',
-  'skin-tag-mole-removal',
-  'face-reshaping',
-];
+const BLOG_SLUGS = readSlugs('src/data/blogDetailPosts.ts', /slug:\s*'([^']+)'/g);
+const SERVICE_SLUGS = readSlugs('src/data/services.ts', /slug:\s*'([^']+)'/g);
 
 function loc(path) {
   if (path === '/') return `${SITE}/`;
@@ -49,17 +34,20 @@ function loc(path) {
 
 function priority(path) {
   if (path === '/') return '1.0';
-  if (path === '/aesthetic-services' || path === '/contact' || path === '/blogs')
+  if (path === '/about' || path === '/aesthetic-services' || path === '/contact' || path === '/blogs')
     return '0.9';
+  if (path.startsWith('/services/')) return '0.85';
   return '0.8';
 }
 
 function changefreq(path) {
   if (path.startsWith('/blogs/')) return 'monthly';
   if (path.startsWith('/services/')) return 'monthly';
-  if (path === '/blogs') return 'weekly';
+  if (path === '/blogs' || path === '/') return 'weekly';
   return 'weekly';
 }
+
+const lastmod = new Date().toISOString().slice(0, 10);
 
 const allPaths = [
   ...STATIC_PATHS,
@@ -71,6 +59,7 @@ const urlEntries = allPaths
   .map(
     (p) => `  <url>
     <loc>${loc(p)}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq(p)}</changefreq>
     <priority>${priority(p)}</priority>
   </url>`
@@ -83,8 +72,7 @@ ${urlEntries}
 </urlset>
 `;
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const distDir = join(__dirname, '..', 'dist');
+const distDir = join(ROOT, 'dist');
 
 if (!existsSync(distDir)) {
   console.error('generate-sitemap: dist/ not found. Run astro build first.');
@@ -93,4 +81,4 @@ if (!existsSync(distDir)) {
 
 const outFile = join(distDir, 'sitemap.xml');
 writeFileSync(outFile, xml, 'utf8');
-console.log(`Sitemap written: ${outFile} (${allPaths.length} URLs)`);
+console.log(`Sitemap written: ${outFile} (${allPaths.length} URLs, lastmod ${lastmod})`);

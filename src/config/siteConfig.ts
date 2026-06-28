@@ -11,8 +11,9 @@ export const siteConfig = {
     location: 'Lahore (Available Nationwide for Clinic Collaborations & On-Call Services)', // Yahan apna city add kar do e.g., 'Karachi, Lahore & Islamabad'
     image: profileImg,
     // 'https://ghadia.vercel.app/haniya.jpeg', // Direct URL daalo (image ka actual path), import ki jagah
-    tagline: 'Advanced Aesthetic & Anti-Aging Treatments',
-    description: 'Delivering safe, results-driven aesthetic procedures with 4+ years of hands-on experience. Specializing in Botox, dermal fillers, PRP therapy, laser treatments, and on-call services across Lahore.',
+    tagline: 'Precision Aesthetics · Natural Results · Lahore',
+    description:
+      'Ghadia Haider is a Lahore-based professional aesthetician with 4+ years of hands-on experience in Botox, dermal fillers, PRP, laser rejuvenation, and advanced non-surgical treatments. I work with private clients and clinics — combining facial mapping, medical-grade hygiene, and honest consultation so results look refined, not overdone.',
     
   },
   social: {
@@ -29,12 +30,22 @@ export const siteConfig = {
       name: 'Ghadia Haider',
       jobTitle: 'Professional Aesthetician',
       image: 'https://ghadia.vercel.app/haniya.jpeg', // Direct URL
-      description: 'Certified aesthetician with 4+ years experience specializing in Botox, dermal fillers, PRP therapy, laser treatments, fat dissolver injections, liquid rhinoplasty, and advanced anti-aging procedures. Available for clinic collaborations and on-call services nationwide in Lahore.',
+      description:
+        'Professional aesthetician in Lahore with 4+ years experience in Botox, dermal fillers, PRP therapy, laser treatments, liquid rhinoplasty, fat dissolver, and skin rejuvenation. Available for private consultations, clinic collaborations, and on-call aesthetic services across Pakistan.',
       url: 'https://ghadia.vercel.app',
       telephone: '+923297941191',
       email: 'ddrghadia@gmail.com',
-      knowsAbout: ['Botox', 'Dermal Fillers', 'PRP Therapy', 'Laser Treatments', 'Anti-Aging Treatments', 'Aesthetic Medicine'],
-      areaServed: 'Lahore', // Agar specific cities hain to array mein daal do: ['Karachi', 'Lahore', 'Islamabad']
+      knowsAbout: [
+        'Botox',
+        'Dermal Fillers',
+        'PRP Therapy',
+        'Laser Skin Rejuvenation',
+        'Liquid Rhinoplasty',
+        'Anti-Aging Treatments',
+        'Non-Surgical Aesthetics',
+        'Clinic On-Call Aesthetic Services',
+      ],
+      areaServed: ['Lahore', 'DHA Lahore', 'Gulberg', 'Johar Town', 'Model Town', 'Bahria Town'],
       priceRange: '$$',
     },
   },
@@ -74,11 +85,13 @@ export const siteConfig = {
   },
   seo: {
     titleTemplate: '%s | Ghadia Haider - Professional Aesthetician in Lahore',
-    defaultTitle: 'Ghadia Haider - Professional Aesthetician | Botox, Fillers & PRP in Lahore',
-    defaultDescription: 'Certified professional aesthetician offering Botox, dermal fillers, PRP therapy, laser treatments, liquid rhinoplasty, and fat dissolver injections. 4+ years experience with safe, natural results. Available nationwide for clinics and on-call services.',
+    defaultTitle:
+      'Ghadia Haider | Professional Aesthetician Lahore — Botox, Fillers, PRP & Laser',
+    defaultDescription:
+      'Book Ghadia Haider — Lahore aesthetician for Botox, dermal fillers, PRP, laser, liquid rhinoplasty & skin rejuvenation. 4+ years experience, natural results, clinic collaborations & on-call services. DHA, Gulberg & across Lahore.',
     siteUrl: 'https://ghadia.vercel.app',
     keywords:
-      'professional aesthetician Lahore, aesthetician Pakistan, certified aesthetician Lahore, medical aesthetician Lahore, beauty aesthetician Lahore, freelance aesthetician Lahore, on-call aesthetician Pakistan, aesthetic portfolio Lahore, Botox Lahore, Botox injections Lahore, forehead Botox, crow\'s feet treatment, dermal fillers Lahore, lip fillers Lahore, cheek fillers, jawline fillers, PRP therapy Lahore, PRP facial Lahore, vampire facial Lahore, hair PRP Lahore, microneedling Lahore, skin booster Lahore, laser hair removal Lahore, laser skin rejuvenation Lahore, carbon laser facial Lahore, pigmentation treatment Lahore, melasma treatment Lahore, acne scar treatment Lahore, skin tightening Lahore, anti-aging treatments Lahore, non-surgical aesthetics Lahore, injectables Lahore, liquid rhinoplasty Lahore, non-surgical nose job Lahore, fat dissolver Lahore, double chin reduction Lahore, fibroblast plasma Lahore, HydraFacial Lahore, hydrafacial Lahore, skin whitening injection Lahore, aesthetic clinic Lahore, beauty clinic Lahore, cosmetic treatments Lahore, facial aesthetics Lahore, medical aesthetics Pakistan',
+      'Ghadia Haider aesthetician, Ghadia aesthetician Lahore, professional aesthetician Lahore, best aesthetician Lahore, aesthetician near me Lahore, on-call aesthetician Lahore, at-home aesthetic treatments Lahore, home visit aesthetician Pakistan, mobile aesthetician Lahore, IV drip at home Lahore, injectables at home Lahore, certified aesthetician Pakistan, medical aesthetician Lahore, freelance aesthetician Lahore, on-call aesthetician Pakistan, clinic collaboration aesthetician, injectable specialist Lahore, Botox Lahore, Botox price Lahore, Botox injections DHA, forehead Botox Lahore, crow\'s feet Botox, dermal fillers Lahore, lip fillers Lahore, cheek fillers Lahore, jawline filler Lahore, under eye filler Lahore, PRP therapy Lahore, PRP facial Lahore, vampire facial Lahore, hair PRP Lahore, laser skin rejuvenation Lahore, laser treatment Lahore, pigmentation laser Lahore, melasma treatment Lahore, acne scar laser Lahore, skin tightening Lahore, non-surgical facelift Lahore, anti-aging treatments Lahore, liquid rhinoplasty Lahore, non-surgical nose job Lahore, fat dissolver Lahore, double chin injection Lahore, fibroplasty Lahore, plasma pen Lahore, HydraFacial Lahore, hydrafacial Lahore, skin whitening injection Lahore, glutathione injection Lahore, skin tag removal Lahore, mole removal Lahore, face reshaping Lahore, facial contouring Lahore, bridal skin treatment Lahore, wedding glow facial Lahore, aesthetic clinic Gulberg, beauty clinic DHA Lahore, cosmetic treatments Johar Town, med spa Lahore, skin rejuvenation Lahore, medical aesthetics Pakistan, aesthetic portfolio Lahore, before after Botox Lahore',
   },
 };
 

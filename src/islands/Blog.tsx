@@ -5,6 +5,33 @@ import { siteConfig } from '../config/siteConfig';
 
 const blogPosts = [
   {
+    slug: 'at-home-aesthetic-treatments-lahore-2026',
+    title: "At-Home Aesthetic Treatments in Lahore: What's Actually Safe in 2026",
+    excerpt:
+      "Wondering which aesthetic treatments can safely come to your home in Lahore? A professional aesthetician breaks down what travels well, what doesn't, and what to ask before booking.",
+    date: 'June 29, 2026',
+    readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80',
+  },
+  {
+    slug: 'anti-aging-treatments-south-asian-skin-2026',
+    title: 'Anti-Aging Treatments for South Asian Skin: A Complete 2026 Guide',
+    excerpt:
+      "South Asian skin ages differently — more pigmentation, slower superficial wrinkling, but unique challenges. Here's what actually works in 2026 for Pakistani skin tones.",
+    date: 'June 29, 2026',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80',
+  },
+  {
+    slug: 'bridal-skin-prep-aesthetic-timeline-pakistan',
+    title: 'Bridal Skin Prep: The 6-Month Aesthetic Timeline Before Your Wedding in Pakistan',
+    excerpt:
+      "A professional aesthetician's month-by-month guide to glowing bridal skin — covering Botox, fillers, PRP, laser, and skin prep for Pakistani brides.",
+    date: 'June 29, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80',
+  },
+  {
     slug: 'botox-aftercare-tips-for-best-results',
     title: '10 Essential Botox Aftercare Tips for Longer-Lasting, Natural Results in 2025',
     excerpt: 'Discover expert-recommended aftercare steps to maximize your Botox treatment and avoid common mistakes for smoother, youthful skin.',
